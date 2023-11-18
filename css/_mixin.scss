@@ -1,0 +1,20 @@
+@mixin default-text ($font-family,$font-size,$line-height,$color) {
+    font-family: $font-family;
+    font-size: $font-size;
+    line-height: $line-height;
+    color:$color
+  }    
+
+  @mixin flex-bx ($display, $justify-content , $align-items,$flex-direction:row ,$flex:none)
+   {
+    display: $display;
+    flex-direction: $flex-direction;
+    justify-content: $justify-content;
+    align-items: $align-items;
+    flex: $flex;
+  }
+
+
+
+
+

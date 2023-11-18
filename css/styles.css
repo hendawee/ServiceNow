@@ -1,0 +1,831 @@
+@font-face {
+  font-family: "DIN Next LT W23";
+  src: url("../fonts/644ad789-1663-4740-a778-649cfad3951a.eot?iefix") format("eot");
+}
+@font-face {
+  font-family: "DIN Next LT W23";
+  src: url("../fonts/644ad789-1663-4740-a778-649cfad3951a.eot?iefix");
+  src: url("../fonts/b53d284e-baaa-45fe-a2d9-9ed3d364834f.woff") format("woff"), url("../fonts/decc2f6c-155a-4101-aaa9-e8570711af71.ttf") format("truetype"), url("../fonts/96953c77-fad6-4aa8-93d1-24182ebd0494.svg#96953c77-fad6-4aa8-93d1-24182ebd0494") format("svg");
+}
+@font-face {
+  font-family: "DIN Next LT W23 Medium";
+  src: url("../fonts/6e7f8ec5-ab54-4a5f-bb89-ef815c6a6e14.eot?iefix") format("eot");
+}
+@font-face {
+  font-family: "DIN Next LT W23 Medium";
+  src: url("../fonts/6e7f8ec5-ab54-4a5f-bb89-ef815c6a6e14.eot?iefix");
+  src: url("../fonts/1424678a-7c69-4221-ba01-30a5d88e631d.woff") format("woff"), url("../fonts/2e195c47-57c9-413e-80a7-e89bc6357180.ttf") format("truetype"), url("../fonts/bf37d5ca-0243-42f1-b614-0857ec2c7aab.svg#bf37d5ca-0243-42f1-b614-0857ec2c7aab") format("svg");
+}
+@keyframes menu-sub-dropdown-animation-fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes menu-sub-dropdown-animation-move-up {
+  from {
+    margin-top: 0.75rem;
+  }
+  to {
+    margin-top: 0;
+  }
+}
+@keyframes menu-sub-dropdown-animation-move-down {
+  from {
+    margin-bottom: 0.75rem;
+  }
+  to {
+    margin-bottom: 0;
+  }
+}
+:root {
+  --primary: #0070b9;
+  --secondary: #92278f;
+  --text_color: #58595b;
+  --site_bg: #f2f2f3;
+  --grey: #88898a;
+  --light-grey: #ccc;
+  --white: #fff;
+  --black: #121212;
+  --black-half: rgba(0, 0, 0, 0.5);
+  --white-half: rgba(255, 255, 255, 0.5);
+  --box-shadow: 0px 10px 30px 0px rgba(82, 63, 105, 0.05);
+  --border: #f1f1f4;
+}
+
+a {
+  text-decoration: none;
+  transition: 0.3s all ease;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+  background: var(--white);
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  border-radius: 3px;
+  background-color: var(--border);
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: var(--light-grey);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:window-inactive {
+  background: var(--primary);
+}
+
+::-moz-placeholder {
+  color: var(--grey) !important;
+  opacity: 1; /* Firefox */
+}
+
+::placeholder {
+  color: var(--grey) !important;
+  opacity: 1; /* Firefox */
+}
+
+::-ms-input-placeholder {
+  /* Edge 12 -18 */
+  color: var(--grey) !important;
+}
+
+.dropdown-item:active {
+  background: var(--site_bg);
+  color: var(--primary);
+}
+
+body {
+  font-family: "DIN Next LT W23";
+  color: var(--text_color);
+  background-color: var(--white);
+}
+@media (min-width: 350px) {
+  body.sb-sidenav-toggled #sidebar-wrapper {
+    margin-left: -350px;
+  }
+}
+
+#page-content-wrapper {
+  padding: 48px;
+  background: var(--site_bg);
+  border-top-left-radius: 60px;
+}
+@media (min-width: 350px) {
+  #page-content-wrapper {
+    min-width: 0;
+    width: 100%;
+  }
+}
+
+#wrapper {
+  overflow: hidden;
+  margin-top: 88px;
+}
+
+header.header {
+  z-index: 99;
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  background: var(--white);
+}
+header.header .container-fluid {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  flex: 0 0 auto;
+  padding: 14px 48px;
+}
+header.header .container-fluid .logo-wrap {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  flex: 0 0 15%;
+}
+header.header .container-fluid .logo-wrap .logo img {
+  height: 46px;
+}
+header.header .container-fluid .logo-wrap .sidebarToggle {
+  background-color: transparent;
+  border: 0 !important;
+  outline: none !important;
+}
+header.header .container-fluid .logo-wrap .sidebarToggle img {
+  transition: 0.3s all ease;
+}
+header.header .container-fluid .logo-wrap .sidebarToggle img:hover {
+  filter: sepia(100%) hue-rotate(190deg) saturate(500%);
+  transform: rotateZ(180deg);
+}
+header.header .container-fluid .search-wrap {
+  position: relative;
+  width: 20%;
+  margin-right: auto;
+  margin-left: 10%;
+}
+header.header .container-fluid .search-wrap input {
+  font-family: "DIN Next LT W23";
+  font-size: 18px;
+  line-height: 150%;
+  color: var(--grey);
+  border-radius: 32px;
+  background: var(--site_bg) url(../images/ic-search.svg) no-repeat;
+  border: none !important;
+  padding: 10px 38px 10px 24px;
+  background-position: 94% center;
+}
+header.header .container-fluid .search-wrap input:active, header.header .container-fluid .search-wrap input:focus {
+  box-shadow: none;
+  border-color: var(--light-grey);
+}
+header.header .container-fluid nav.navbar {
+  padding: 0;
+}
+header.header .container-fluid nav.navbar .navbar-nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  flex: 0 0 auto;
+  gap: 10px;
+}
+header.header .container-fluid nav.navbar .navbar-nav .nav-item {
+  position: relative;
+}
+header.header .container-fluid nav.navbar .navbar-nav .nav-item.language a.nav-link, header.header .container-fluid nav.navbar .navbar-nav .nav-item.notification a.nav-link, header.header .container-fluid nav.navbar .navbar-nav .nav-item.user-panel a.nav-link {
+  padding: 0;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex: none;
+  background: var(--site_bg);
+  border-radius: 50%;
+}
+header.header .container-fluid nav.navbar .navbar-nav .nav-item.language .dropdown-menu .dropdown-item, header.header .container-fluid nav.navbar .navbar-nav .nav-item.notification .dropdown-menu .dropdown-item, header.header .container-fluid nav.navbar .navbar-nav .nav-item.user-panel .dropdown-menu .dropdown-item {
+  display: block;
+}
+header.header .container-fluid nav.navbar .navbar-nav .nav-item.language .dropdown-menu .dropdown-item img, header.header .container-fluid nav.navbar .navbar-nav .nav-item.notification .dropdown-menu .dropdown-item img, header.header .container-fluid nav.navbar .navbar-nav .nav-item.user-panel .dropdown-menu .dropdown-item img {
+  width: 20px;
+  height: 20px;
+  border-radius: 5px;
+  margin-right: 5px;
+  position: relative;
+  top: -2px;
+}
+header.header .container-fluid nav.navbar .navbar-nav .nav-item.language .dropdown-menu .dropdown-item.active, header.header .container-fluid nav.navbar .navbar-nav .nav-item.notification .dropdown-menu .dropdown-item.active, header.header .container-fluid nav.navbar .navbar-nav .nav-item.user-panel .dropdown-menu .dropdown-item.active {
+  background: var(--site_bg) !important;
+  color: var(--black);
+}
+@media (min-width: 769px) {
+  header.header .container-fluid nav.navbar .navbar-nav .nav-item.language .dropdown-menu, header.header .container-fluid nav.navbar .navbar-nav .nav-item.notification .dropdown-menu, header.header .container-fluid nav.navbar .navbar-nav .nav-item.user-panel .dropdown-menu {
+    right: 0;
+    will-change: transform;
+    animation: menu-sub-dropdown-animation-fade-in 0.3s ease 1, menu-sub-dropdown-animation-move-up 0.3s ease 1;
+    z-index: 1;
+    position: fixed;
+    inset: 0px 0px auto auto;
+    margin: 0px;
+    transform: translate3d(-34px, 59px, 0px);
+    border: none;
+    box-shadow: var(--box-shadow);
+  }
+}
+@media (min-width: 769px) {
+  header.header .container-fluid nav.navbar .navbar-nav .nav-item.language:hover > .dropdown-menu, header.header .container-fluid nav.navbar .navbar-nav .nav-item.notification:hover > .dropdown-menu, header.header .container-fluid nav.navbar .navbar-nav .nav-item.user-panel:hover > .dropdown-menu {
+    display: block;
+    margin-top: 0;
+  }
+}
+header.header .container-fluid nav.navbar .navbar-nav .nav-item.language .dropdown-menu {
+  min-width: 200px;
+}
+header.header .container-fluid nav.navbar .navbar-nav .nav-item.language .dropdown-menu a {
+  padding: 5px 15px;
+  color: var(--black);
+}
+header.header .container-fluid nav.navbar .navbar-nav .nav-item.notification a.nav-link {
+  position: relative;
+}
+header.header .container-fluid nav.navbar .navbar-nav .nav-item.notification a.nav-link span.counter {
+  position: absolute;
+  top: -10px;
+  left: -5px;
+  background: var(--secondary);
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  text-align: center;
+  color: var(--white);
+  font-size: 14px;
+}
+header.header .container-fluid nav.navbar .navbar-nav .nav-item.notification .dropdown-menu {
+  min-width: 250px;
+}
+header.header .container-fluid nav.navbar .navbar-nav .nav-item.notification .dropdown-menu h4 {
+  font-family: "DIN Next LT W23 Medium";
+  font-size: 18px;
+  line-height: 150%;
+  color: var(--black);
+  border-bottom: 0.5px solid var(--light-grey);
+  padding: 10px 20px;
+}
+header.header .container-fluid nav.navbar .navbar-nav .nav-item.notification .dropdown-menu .bx-list .symbol {
+  display: flex;
+  flex-direction: row;
+  justify-content: stretch;
+  align-items: start;
+  flex: none;
+  padding: 10px 20px;
+}
+header.header .container-fluid nav.navbar .navbar-nav .nav-item.notification .dropdown-menu .bx-list .symbol img {
+  margin-top: 8px;
+  width: 22px;
+  height: 22px;
+}
+header.header .container-fluid nav.navbar .navbar-nav .nav-item.notification .dropdown-menu .bx-list .symbol .symbol-info {
+  margin: 0 15px;
+}
+header.header .container-fluid nav.navbar .navbar-nav .nav-item.notification .dropdown-menu .bx-list .symbol .symbol-info p {
+  margin: 0;
+  font-family: "DIN Next LT W23";
+  font-size: 16px;
+  line-height: 150%;
+  color: var(--black);
+  transition: color 0.2s ease;
+}
+header.header .container-fluid nav.navbar .navbar-nav .nav-item.notification .dropdown-menu .bx-list .symbol .symbol-info span {
+  font-family: "DIN Next LT W23";
+  font-size: 14px;
+  line-height: 150%;
+  color: var(--grey);
+}
+header.header .container-fluid nav.navbar .navbar-nav .nav-item.notification .dropdown-menu .bx-list .symbol:hover {
+  background: var(--site_bg) !important;
+}
+header.header .container-fluid nav.navbar .navbar-nav .nav-item.user-panel a.nav-link {
+  width: 60px;
+  height: 60px;
+}
+header.header .container-fluid nav.navbar .navbar-nav .nav-item.user-panel a.nav-link img {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+}
+header.header .container-fluid nav.navbar .navbar-nav .nav-item.user-panel .dropdown-menu {
+  min-width: 280px;
+}
+header.header .container-fluid nav.navbar .navbar-nav .nav-item.user-panel .dropdown-menu .user-info {
+  display: flex;
+  padding: 15px;
+  gap: 1rem;
+  border-bottom: 0.5px solid var(--light-grey);
+  margin-bottom: 10px;
+}
+header.header .container-fluid nav.navbar .navbar-nav .nav-item.user-panel .dropdown-menu .user-info img {
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+}
+header.header .container-fluid nav.navbar .navbar-nav .nav-item.user-panel .dropdown-menu .user-info .info p.name {
+  margin: 0;
+  font-family: "DIN Next LT W23 Medium";
+  font-size: 18px;
+  line-height: 150%;
+  color: var(--black);
+}
+header.header .container-fluid nav.navbar .navbar-nav .nav-item.user-panel .dropdown-menu .user-info .info p.pos {
+  margin: 0;
+  color: var(--grey);
+}
+header.header .container-fluid nav.navbar .navbar-nav .nav-item.user-panel .dropdown-menu .user-list ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+header.header .container-fluid nav.navbar .navbar-nav .nav-item.user-panel .dropdown-menu .user-list ul a {
+  display: flex;
+  flex-direction: start;
+  justify-content: row;
+  align-items: space-between;
+  flex: none;
+  padding: 6px 15px;
+  color: var(--grey);
+}
+header.header .container-fluid nav.navbar .navbar-nav .nav-item.user-panel .dropdown-menu .user-list ul a:hover {
+  color: var(--black);
+  background: var(--site_bg);
+}
+
+#sidebar-wrapper {
+  background: var(--white);
+  width: 350px;
+  height: 100vh;
+  margin-left: 0px;
+  transition: margin 0.25s ease-out;
+  padding: 50px 0;
+}
+#sidebar-wrapper .sidebar-nav {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+@media (min-width: 769px) {
+  #sidebar-wrapper .sidebar-nav {
+    position: fixed;
+    width: 280px;
+  }
+}
+#sidebar-wrapper .sidebar-nav > li a.list-group-item {
+  padding: 10px;
+  font-family: "DIN Next LT W23";
+  font-size: 18px;
+  line-height: 150%;
+  color: var(--black);
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+@media (min-width: 769px) {
+  #sidebar-wrapper .sidebar-nav > li a.list-group-item {
+    padding: 12px 10px 12px 20px;
+  }
+}
+#sidebar-wrapper .sidebar-nav > li a.list-group-item.active {
+  background-color: var(--site_bg);
+  color: var(--secondary);
+  border-top-right-radius: 3px;
+  border-bottom-right-radius: 3px;
+}
+#sidebar-wrapper .sidebar-nav > li a.list-group-item.active::before {
+  content: "";
+  position: absolute;
+  left: 0px;
+  top: 0;
+  width: 5px;
+  height: 100%;
+  background: var(--secondary);
+}
+#sidebar-wrapper .sidebar-nav > li a.list-group-item.active svg path {
+  fill: var(--secondary);
+}
+#sidebar-wrapper .sidebar-nav > li a.list-group-item:hover {
+  background-color: var(--site_bg);
+  color: var(--grey);
+}
+#sidebar-wrapper .sidebar-nav > li a.list-group-item svg {
+  margin: 0 10px;
+}
+#sidebar-wrapper .sidebar-nav > li a.list-group-item[data-bs-toggle=collapse]::after {
+  content: "";
+  position: absolute;
+  background: url(../images/ic-siderbar-arrow.svg) no-repeat;
+  width: 24px;
+  height: 24px;
+  right: 10px;
+  top: 20%;
+}
+@media (min-width: 769px) {
+  #sidebar-wrapper .sidebar-nav > li a.list-group-item[data-bs-toggle=collapse]::after {
+    right: 6%;
+    top: 31%;
+  }
+}
+#sidebar-wrapper .sidebar-nav > li a.list-group-item[data-bs-toggle=collapse].active:not(.collapsed)::after {
+  transform: rotate(90deg);
+}
+#sidebar-wrapper .sidebar-nav > li ul {
+  list-style: none !important;
+}
+
+section.frist-section {
+  align-items: center;
+}
+section.frist-section .welcome {
+  position: relative;
+}
+section.frist-section .welcome > span {
+  font-family: "DIN Next LT W23";
+  font-size: 22px;
+  line-height: 150%;
+  color: var(--primary);
+  display: block;
+  margin-bottom: 10px;
+}
+section.frist-section .welcome h3 {
+  font-family: "DIN Next LT W23";
+  font-size: 36px;
+  line-height: 150%;
+  color: var(--black);
+}
+section.frist-section .welcome h3 p {
+  font-family: "DIN Next LT W23";
+  font-size: 32px;
+  line-height: 150%;
+  color: var(--grey);
+}
+section.frist-section .services-sammary ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex: none;
+  align-content: center;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+section.frist-section .services-sammary ul li a {
+  display: flex;
+  width: 144px;
+  height: 144px;
+  padding: 24px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: #fff;
+  box-shadow: 0px 10px 30px 0px rgba(82, 63, 105, 0.05);
+  border-radius: 12px;
+  transition: all 0.2s linear 0s;
+}
+section.frist-section .services-sammary ul li a svg {
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+}
+section.frist-section .services-sammary ul li a span {
+  color: #121212;
+  font-family: DIN Next LT W23;
+  font-size: 22px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+section.frist-section .services-sammary ul li a p {
+  margin: 10px 0px;
+  color: #80808f;
+  text-align: center;
+  font-family: DIN Next LT W23;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+section.frist-section .services-sammary ul li a:hover {
+  background: var(--primary);
+}
+section.frist-section .services-sammary ul li a:hover svg path {
+  fill: var(--white);
+}
+section.frist-section .services-sammary ul li a:hover span {
+  color: var(--white);
+}
+section.frist-section .services-sammary ul li a:hover p {
+  color: var(--white-half);
+}
+
+.favorite-box,
+.quick-links-box {
+  border-radius: 12px;
+  background: #fff;
+  box-shadow: 0px 10px 30px 0px rgba(82, 63, 105, 0.05);
+  display: flex;
+  padding: 24px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 35px;
+}
+.favorite-box .commonTitle,
+.quick-links-box .commonTitle {
+  color: #121212;
+  font-family: DIN Next LT W23;
+  font-size: 22px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+.favorite-box ul,
+.quick-links-box ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  height: 190px;
+  overflow-y: hidden;
+  padding-right: 10px;
+  position: relative;
+}
+.favorite-box ul li,
+.quick-links-box ul li {
+  margin-bottom: 10px;
+}
+.favorite-box ul li a,
+.quick-links-box ul li a {
+  border-radius: 12px;
+  background: #f2f3f7;
+  display: flex;
+  padding: 15px 18px;
+  align-items: center;
+  gap: 10px;
+  color: var(--grey);
+  font-family: DIN Next LT W23;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+.favorite-box ul li a:hover,
+.quick-links-box ul li a:hover {
+  color: var(--white);
+  background: var(--primary);
+}
+.favorite-box:hover ul,
+.quick-links-box:hover ul {
+  overflow-y: scroll;
+}
+
+.second-section {
+  margin-top: 48px;
+}
+.second-section .title-with-action {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 15px;
+}
+.second-section .title-with-action h3 {
+  color: #121212;
+  font-family: DIN Next LT W23;
+  font-size: 28px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 50px;
+}
+.second-section .title-with-action .actionBtn {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #fff;
+  padding: 10px;
+  border-radius: 30px;
+  gap: 20px;
+  box-shadow: 0px 10px 30px 0px rgba(82, 63, 105, 0.05);
+}
+.second-section .title-with-action .actionBtn .add a {
+  display: block;
+  color: rgba(18, 18, 18, 0.5);
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+.second-section .title-with-action .actionBtn .add a svg {
+  margin: 0 5px;
+}
+.second-section .title-with-action .actionBtn .add a:hover {
+  color: var(--secondary);
+}
+.second-section .title-with-action .actionBtn .add a:hover svg path {
+  fill: var(--secondary);
+}
+.second-section .title-with-action .actionBtn .current a {
+  border-radius: 100px;
+  background: #922a8e;
+  box-shadow: 0px 12px 24px 0px rgba(45, 42, 50, 0.06);
+  display: inline-flex;
+  padding: 8px 23px;
+  align-items: flex-start;
+  color: #fff;
+  line-height: 150%;
+}
+.second-section .title-with-action .actionBtn .current a:hover {
+  color: var(--black);
+  background: var(--light-grey);
+}
+.second-section .services-box .accordion .accordion-item {
+  margin-bottom: 10px;
+  border-radius: 12px;
+  border: 1px solid rgba(122, 122, 122, 0.2);
+  background: #fff;
+}
+.second-section .services-box .accordion .accordion-item .accordion-header .accordion-button {
+  background: none;
+  outline: none !important;
+  border: 0 !important;
+  padding: 10px 20px 10px 60px;
+  justify-content: space-between;
+}
+.second-section .services-box .accordion .accordion-item .accordion-header .accordion-button > span {
+  color: #121212;
+  font-family: DIN Next LT W23;
+  font-size: 22px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+.second-section .services-box .accordion .accordion-item .accordion-header .accordion-button .serv-summary {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2em;
+}
+.second-section .services-box .accordion .accordion-item .accordion-header .accordion-button .serv-summary a {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.3rem;
+}
+.second-section .services-box .accordion .accordion-item .accordion-header .accordion-button .serv-summary a div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+}
+.second-section .services-box .accordion .accordion-item .accordion-header .accordion-button .serv-summary a div svg {
+  width: 24px;
+  height: 24px;
+}
+.second-section .services-box .accordion .accordion-item .accordion-header .accordion-button .serv-summary a div svg path {
+  fill: rgba(0, 0, 0, 0.5);
+}
+.second-section .services-box .accordion .accordion-item .accordion-header .accordion-button .serv-summary a div span {
+  color: #121212;
+  font-family: DIN Next LT W23;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+.second-section .services-box .accordion .accordion-item .accordion-header .accordion-button .serv-summary a p {
+  margin: 0;
+  color: #80808f;
+  font-family: DIN Next LT W23;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+.second-section .services-box .accordion .accordion-item .accordion-header .accordion-button:focus {
+  border: 0px !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+.second-section .services-box .accordion .accordion-item .accordion-header .accordion-button:after {
+  content: none;
+}
+.second-section .services-box .accordion .accordion-item .accordion-header .accordion-button:before {
+  content: "";
+  border-radius: 25px;
+  background: rgba(0, 112, 185, 0.05) url(../images/ic-siderbar-arrow.svg) no-repeat;
+  width: 34px;
+  height: 34px;
+  left: 14px;
+  position: absolute;
+  background-position: center center;
+}
+.second-section .services-box .accordion .accordion-item .accordion-header .accordion-button[aria-expanded=true] .serv-summary a div svg path {
+  fill: var(--primary);
+}
+.second-section .services-box .accordion .accordion-item .accordion-header .accordion-button[aria-expanded=true] .serv-summary a div span {
+  color: var(--primary);
+}
+.second-section .services-box .accordion .accordion-item .accordion-header .accordion-button[aria-expanded=true]:before {
+  background: var(--secondary) url(../images/ic-active-accordion.svg) no-repeat;
+  background-position: center center;
+}
+.second-section .services-box .accordion .accordion-item .accordion-body .section-title-with-action {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 15px;
+}
+.second-section .services-box .accordion .accordion-item .accordion-body .section-title-with-action h3 {
+  color: #212121;
+  font-family: DIN Next LT W23;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 21px; /* 105% */
+}
+.second-section .services-box .accordion .accordion-item .accordion-body .section-title-with-action .tool-action {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 5px;
+}
+.second-section .services-box .accordion .accordion-item .accordion-body .section-title-with-action .tool-action .add a {
+  border-radius: 22px;
+  background: #922a8e;
+  color: #fff;
+  display: block;
+  padding: 2px 25px 2px 0px;
+  opacity: 0.8;
+}
+.second-section .services-box .accordion .accordion-item .accordion-body .section-title-with-action .tool-action .add a:hover {
+  opacity: 1;
+}
+.second-section .services-box .accordion .accordion-item .accordion-body .section-title-with-action .tool-action .add a svg {
+  margin-right: 10px;
+}
+.second-section .services-box .accordion .accordion-item .accordion-body .section-title-with-action .tool-action .add a svg path {
+  fill: #fff;
+}
+.second-section .services-box .accordion .accordion-item .accordion-body .section-title-with-action .tool-action .all a {
+  border-radius: 22px;
+  background: #0b71ba;
+  color: #fff;
+  display: block;
+  padding: 7px 25px 8px;
+  text-align: center;
+  opacity: 0.8;
+}
+.second-section .services-box .accordion .accordion-item .accordion-body .section-title-with-action .tool-action .all a:hover {
+  opacity: 1;
+}
+
+.table-responsive {
+  overflow-x: auto;
+}
+.table-responsive .cases-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.table-responsive .cases-table tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+.table-responsive .cases-table tr:hover {
+  background-color: #f2f2f2;
+}
+.table-responsive .cases-table th,
+.table-responsive .cases-table td {
+  text-align: left;
+  padding: 8px;
+  border-bottom: 1px solid var(--site_bg);
+  color: var(--grey);
+}
+.table-responsive .cases-table th.status-open,
+.table-responsive .cases-table td.status-open {
+  color: #1BC5BD;
+}
+.table-responsive .cases-table th.status-closed,
+.table-responsive .cases-table td.status-closed {
+  color: #F64E60;
+}
+.table-responsive .cases-table thead th {
+  background-color: var(--site_bg);
+  color: var(--black);
+}/*# sourceMappingURL=styles.css.map */

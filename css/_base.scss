@@ -1,0 +1,100 @@
+// Site Colors
+:root {
+  --primary: #0070b9;
+  --secondary: #92278f;
+  --text_color: #58595b;
+  --site_bg: #f2f2f3;
+  --grey: #88898a;
+  --light-grey: #ccc;
+  --white: #fff;
+  --black: #121212;
+  --black-half: rgba(0, 0, 0, 0.5);
+  --white-half: rgba(255, 255, 255, 0.5);
+  --box-shadow: 0px 10px 30px 0px rgba(82, 63, 105, 0.05);
+  --border: #f1f1f4;
+}
+
+// Site Bases
+$xxs: 350px;
+$sm: 480px;
+$md: 769px;
+$lg: 992px;
+$xl: 1200px;
+$xxl: 1400px;
+
+// Site Font
+$font-regular: "DIN Next LT W23";
+$font-medium: "DIN Next LT W23 Medium";
+
+a {
+  text-decoration: none;
+  transition: 0.3s all ease;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+  background: var(--white);
+}
+
+/* Track */
+
+::-webkit-scrollbar-track {
+  border-radius: 3px;
+  background-color: var(--border);
+}
+
+/* Handle */
+
+::-webkit-scrollbar-thumb {
+  background: var(--light-grey);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:window-inactive {
+  background: var(--primary);
+}
+
+::placeholder {
+  color: var(--grey) !important;
+  opacity: 1; /* Firefox */
+}
+
+::-ms-input-placeholder {
+  /* Edge 12 -18 */
+  color: var(--grey) !important;
+}
+
+.dropdown-item:active {
+  background: var(--site_bg);
+  color: var(--primary);
+}
+
+body {
+  font-family: $font-regular;
+  color: var(--text_color);
+  background-color: var(--white);
+
+  &.sb-sidenav-toggled {
+    #sidebar-wrapper {
+    //   margin-left: 0;
+      @media (min-width: $xxs) {
+        margin-left: -350px;
+      }
+    }
+  }
+}
+#page-content-wrapper {
+//   min-width: 100vw;
+  padding: 48px;
+  background: var(--site_bg);
+  border-top-left-radius: 60px;
+  @media (min-width: $xxs) {
+    min-width: 0;
+    width: 100%;
+  }
+}
+
+#wrapper {
+  overflow: hidden;
+  margin-top: 88px;
+}
