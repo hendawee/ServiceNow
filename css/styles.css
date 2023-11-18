@@ -482,18 +482,20 @@ section.frist-section .services-sammary ul {
   list-style: none;
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   flex: none;
-  align-content: center;
-  gap: 15px;
   flex-wrap: wrap;
+}
+section.frist-section .services-sammary ul li {
+  display: flex;
+  flex-wrap: wrap;
+  width: 48%;
+  margin-bottom: 10px;
 }
 section.frist-section .services-sammary ul li a {
   display: flex;
-  width: 144px;
-  height: 144px;
-  padding: 24px;
+  padding: 24px 5px;
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -501,6 +503,8 @@ section.frist-section .services-sammary ul li a {
   box-shadow: 0px 10px 30px 0px rgba(82, 63, 105, 0.05);
   border-radius: 12px;
   transition: all 0.2s linear 0s;
+  width: 100%;
+  height: 100%;
 }
 section.frist-section .services-sammary ul li a svg {
   width: 24px;
@@ -544,10 +548,10 @@ section.frist-section .services-sammary ul li a:hover p {
   background: #fff;
   box-shadow: 0px 10px 30px 0px rgba(82, 63, 105, 0.05);
   display: flex;
-  padding: 24px;
+  padding: 20px 24px;
   flex-direction: column;
   align-items: flex-start;
-  gap: 35px;
+  gap: 25px;
 }
 .favorite-box .commonTitle,
 .quick-links-box .commonTitle {
