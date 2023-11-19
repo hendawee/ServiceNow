@@ -877,7 +877,6 @@ section.frist-section .services-sammary ul li a:hover p {
 @media (max-width: 992px) {
   .login {
     flex-direction: column;
-    overflow: hidden;
   }
 }
 .login .login-section {
