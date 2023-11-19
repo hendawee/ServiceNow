@@ -13,7 +13,8 @@
         align-items: center;
         @media (max-width: $lg) {
             width: 100%;
-            padding: 70px 0;
+            padding: 70px 20px;
+            
         }
       
         .lang-switch{
@@ -29,6 +30,13 @@
             color: #fff;
             font-size: 20px;
             line-height: 150%;
+            @media (max-width: $lg) {
+                background: #87348a;
+                top: 60px;
+                position: absolute;
+                padding: 5px 15px 10px;
+                border-radius: 30px;
+            }
         }
         .login-contents {
             width: 100%;
@@ -90,7 +98,7 @@
                     border: 1px solid #EDF1E7;
                     background: #FAFAFA;
                     display: flex;
-                    width: 388px;
+                    width: 100%;
                     height: 60px;
                     padding: 18px 24px;
                     align-items: center;
@@ -123,8 +131,8 @@
         @media (max-width: $lg) {
             align-items: start;
             flex-direction: column;
-            text-align: center;
-            padding: 50px;
+            padding: 70px 20px;
+            width: auto;
         }
        
 
@@ -135,6 +143,7 @@
             inset-inline-start: 5%;
             @media (max-width: $lg) {
                 position: relative;
+                top: -40px;
             }
         }
         .branding-info{
@@ -145,7 +154,12 @@
             }
             h1{
                 @include default-text($font-medium, 48px, 120%, var(--black));
-                margin-bottom: 20px
+                margin-bottom: 20px;
+                @media (max-width: $lg) {
+                    font-size: 38px; 
+                }
+                   
+               
             }
             p{
                 @include default-text($font-regular, 19, 150%, var(--grey));
