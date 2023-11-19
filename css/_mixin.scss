@@ -14,6 +14,15 @@
     flex: $flex;
   }
 
+  @mixin direction($left: null, $right: null) {
+    @if $right != null {
+      inset-inline-end: $right;
+    }
+    @if $left != null {
+      inset-inline-start: $left;
+    }
+    
+  }
 
 
 

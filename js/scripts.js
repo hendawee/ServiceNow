@@ -1,49 +1,63 @@
-document.addEventListener('DOMContentLoaded', function () {
-       // Toggle the side navigation
-       const sidebarToggle = document.body.querySelector('#sidebarToggle');
-       if (sidebarToggle) {
-           sidebarToggle.addEventListener('click', event => {
-               event.preventDefault();
-               document.body.classList.toggle('sb-sidenav-toggled');
-               localStorage.setItem('sb|sidebar-toggle', document.body.classList.contains('sb-sidenav-toggled'));
-           });
-       }
+document.addEventListener("DOMContentLoaded", function () {
 
+ const isSidebarToggled = localStorage.getItem("sb|sidebar-toggle") === "true";
+ if (isSidebarToggled) {
+     document.body.classList.add("sb-sidenav-toggled");
+ }
 
-        // Toggle the active sidebar link
-    var listItems = document.querySelectorAll('.sidebar-nav > li > a.list-group-item');
-    var sublistItems = document.querySelectorAll('.sidebar-nav ul.collapse');
+ // Toggle the side navigation
+ const sidebarToggle = document.body.querySelector("#sidebarToggle");
+ if (sidebarToggle) {
+     sidebarToggle.addEventListener("click", (event) => {
+         event.preventDefault();
+         document.body.classList.toggle("sb-sidenav-toggled");
+         localStorage.setItem(
+             "sb|sidebar-toggle",
+             document.body.classList.contains("sb-sidenav-toggled")
+         );
+     });
+ }
 
-    listItems.forEach(function (item) {
-        item.addEventListener('click', function () {
-            // Remove 'active' class from all items
-            listItems.forEach(function (item) {
-                if (item.classList.contains('active')) {
-                    item.classList.remove('active');
-                }
-                sublistItems.forEach(function (item) {
-                    if (item.classList.contains('show')) {
-                        item.classList.remove('show');
-                    } 
-                });
-            });
+  // Toggle the active sidebar link
+  var listItems = document.querySelectorAll(
+    ".sidebar-nav > li > a.list-group-item"
+  );
+  var sublistItems = document.querySelectorAll(".sidebar-nav ul.collapse");
 
-            // Add 'active' class to clicked item
-            this.classList.toggle('active');
+  listItems.forEach(function (item) {
+    item.addEventListener("click", function () {
+      // Remove 'active' class from all items
+      listItems.forEach(function (item) {
+        if (item.classList.contains("active")) {
+          item.classList.remove("active");
+        }
+        sublistItems.forEach(function (item) {
+          if (item.classList.contains("show")) {
+            item.classList.remove("show");
+          }
         });
+      });
+
+      // Add 'active' class to clicked item
+      this.classList.toggle("active");
     });
+  });
+  var savedLang = localStorage.getItem('lang');
+  if (savedLang) {
+      setLanguage(savedLang);
+  }
 });
 
 function checkSize() {
-    if (window.innerWidth <= 1024) {
-        document.body.classList.add("sb-sidenav-toggled");
-    } else {
-        document.body.classList.remove("sb-sidenav-toggled");
-    }
+  if (window.innerWidth <= 1024) {
+    document.body.classList.add("sb-sidenav-toggled");
+  } else {
+    document.body.classList.remove("sb-sidenav-toggled");
+  }
 }
 
 // Run the function on initial load
 checkSize();
 
 // Add the event listener for resize
-window.addEventListener('resize', checkSize);
+window.addEventListener("resize", checkSize);

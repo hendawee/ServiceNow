@@ -7,7 +7,7 @@
   --grey: #88898a;
   --light-grey: #ccc;
   --white: #fff;
-  --black: #121212;
+  --black: #121212;  
   --black-half: rgba(0, 0, 0, 0.5);
   --white-half: rgba(255, 255, 255, 0.5);
   --box-shadow: 0px 10px 30px 0px rgba(82, 63, 105, 0.05);
@@ -92,9 +92,39 @@ body {
     min-width: 0;
     width: 100%;
   }
-}
+}  
 
 #wrapper {
   overflow: hidden;
   margin-top: 88px;
 }
+
+// $direction: 'left'; // Dont't Remove or Edit this line
+// $reverse-direction: 'right'; // Dont't Remove or Edit this line
+
+// .fixed-element {
+//   position: fixed;
+//   top: 10px;
+//   #{$direction}: 10px;
+// }
+
+/* LTR specific styles */
+.ltr {
+  direction: ltr;
+  text-align: left;
+}
+
+.ltr .nav-tabs .nav-link.active {
+  /* Specific LTR styles if necessary */
+}
+
+/* RTL specific styles */
+.rtl {
+  direction: rtl;
+  text-align: right;
+}
+
+.rtl .nav-tabs .nav-link.active {
+  /* Specific RTL styles if necessary */
+}
+

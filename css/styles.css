@@ -129,11 +129,31 @@ body {
   margin-top: 88px;
 }
 
+/* LTR specific styles */
+.ltr {
+  direction: ltr;
+  text-align: left;
+}
+
+.ltr .nav-tabs .nav-link.active {
+  /* Specific LTR styles if necessary */
+}
+
+/* RTL specific styles */
+.rtl {
+  direction: rtl;
+  text-align: right;
+}
+
+.rtl .nav-tabs .nav-link.active {
+  /* Specific RTL styles if necessary */
+}
+
 header.header {
   z-index: 99;
   position: fixed;
-  left: 0;
-  right: 0;
+  inset-inline-start: 0;
+  inset-inline-end: 0;
   top: 0;
   background: var(--white);
 }
@@ -170,8 +190,21 @@ header.header .container-fluid .logo-wrap .sidebarToggle img:hover {
 header.header .container-fluid .search-wrap {
   position: relative;
   width: 20%;
-  margin-right: auto;
-  margin-left: 10%;
+  margin-inline-end: auto;
+  margin-inline-start: 10%;
+}
+header.header .container-fluid .search-wrap form {
+  position: relative;
+}
+header.header .container-fluid .search-wrap form:after {
+  content: "";
+  width: 21px;
+  height: 21px;
+  position: absolute;
+  background: url(../images/ic-search.svg) no-repeat;
+  background-size: cover;
+  inset-inline-end: 3%;
+  top: 10px;
 }
 header.header .container-fluid .search-wrap input {
   font-family: "DIN Next LT W23";
@@ -179,10 +212,12 @@ header.header .container-fluid .search-wrap input {
   line-height: 150%;
   color: var(--grey);
   border-radius: 32px;
-  background: var(--site_bg) url(../images/ic-search.svg) no-repeat;
+  background: var(--site_bg);
   border: none !important;
-  padding: 10px 38px 10px 24px;
-  background-position: 94% center;
+  padding-top: 10px;
+  padding-inline-end: 38px;
+  padding-top: 10px;
+  padding-inline-start: 24px;
 }
 header.header .container-fluid .search-wrap input:active, header.header .container-fluid .search-wrap input:focus {
   box-shadow: none;
@@ -221,7 +256,7 @@ header.header .container-fluid nav.navbar .navbar-nav .nav-item.language .dropdo
   width: 20px;
   height: 20px;
   border-radius: 5px;
-  margin-right: 5px;
+  margin-inline-end: 5px;
   position: relative;
   top: -2px;
 }
@@ -231,7 +266,7 @@ header.header .container-fluid nav.navbar .navbar-nav .nav-item.language .dropdo
 }
 @media (min-width: 769px) {
   header.header .container-fluid nav.navbar .navbar-nav .nav-item.language .dropdown-menu, header.header .container-fluid nav.navbar .navbar-nav .nav-item.notification .dropdown-menu, header.header .container-fluid nav.navbar .navbar-nav .nav-item.user-panel .dropdown-menu {
-    right: 0;
+    inset-inline-end: 0;
     will-change: transform;
     animation: menu-sub-dropdown-animation-fade-in 0.3s ease 1, menu-sub-dropdown-animation-move-up 0.3s ease 1;
     z-index: 1;
@@ -262,7 +297,7 @@ header.header .container-fluid nav.navbar .navbar-nav .nav-item.notification a.n
 header.header .container-fluid nav.navbar .navbar-nav .nav-item.notification a.nav-link span.counter {
   position: absolute;
   top: -10px;
-  left: -5px;
+  inset-inline-start: -5px;
   background: var(--secondary);
   width: 24px;
   height: 24px;
@@ -832,4 +867,155 @@ section.frist-section .services-sammary ul li a:hover p {
 .table-responsive .cases-table thead th {
   background-color: var(--site_bg);
   color: var(--black);
+}
+
+.login {
+  display: flex;
+  flex-direction: row;
+  height: 100vh;
+}
+.login .login-section {
+  width: 33.333%;
+  background-color: var(--primary);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.login .login-section .lang-switch {
+  position: fixed;
+  top: 5%;
+  inset-inline-end: 5%;
+  padding: 10px 20px;
+  cursor: pointer;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  z-index: 99;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  font-size: 20px;
+  line-height: 150%;
+}
+.login .login-section .login-contents {
+  width: 100%;
+  max-width: 460px;
+  border-radius: 12px;
+  background: #FAFAFA;
+  box-shadow: 0px 12px 24px 0px rgba(45, 42, 50, 0.06);
+  display: flex;
+  padding: 36px;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+.login .login-section .login-contents ul {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  gap: 5px;
+  padding: 0;
+}
+.login .login-section .login-contents ul li {
+  flex-grow: 1;
+}
+.login .login-section .login-contents ul li button {
+  width: 100%;
+  color: #969599;
+  text-align: center;
+  font-family: DIN Next LT W23;
+  font-style: normal;
+  font-weight: 750;
+  line-height: normal;
+  font-size: 18px;
+  box-shadow: none;
+  outline: none;
+  border: none;
+  border-bottom: 4px solid #808080;
+}
+.login .login-section .login-contents ul li button.active {
+  color: #0270b9;
+  border: none;
+  background: transparent;
+  border-bottom: 4px solid #0270b9;
+}
+.login .login-section .login-contents .frm-title {
+  text-align: center;
+  color: #121212;
+  text-align: center;
+  font-family: DIN Next LT W23;
+  font-size: 30px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+.login .login-section .login-contents .tab-content {
+  width: 100%;
+}
+.login .login-section .login-contents .tab-content .form-control {
+  border-radius: 12px;
+  border: 1px solid #EDF1E7;
+  background: #FAFAFA;
+  display: flex;
+  width: 388px;
+  height: 60px;
+  padding: 18px 24px;
+  align-items: center;
+  gap: 12px;
+  box-shadow: none;
+  font-size: 18px;
+}
+.login .login-section .login-contents .tab-content button.btn-frm-submit {
+  border-radius: 12px;
+  background: #0070B9;
+  width: 100%;
+  display: flex;
+  padding: 15px;
+  justify-content: center;
+  margin: 40px 0px 15px;
+  color: #fff;
+}
+.login .branding-section {
+  flex: 1;
+  background-color: var(--white);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  background: url("../images/login-vector.svg") no-repeat;
+  background-size: cover;
+}
+.login .branding-section .logo {
+  position: absolute;
+  top: 5%;
+  inset-inline-start: 5%;
+}
+.login .branding-section .branding-info {
+  width: 100%;
+  max-width: 460px;
+}
+.login .branding-section .branding-info span {
+  font-family: "DIN Next LT W23";
+  font-size: 18px;
+  line-height: 150%;
+  color: var(--primary);
+}
+.login .branding-section .branding-info h1 {
+  font-family: "DIN Next LT W23 Medium";
+  font-size: 48px;
+  line-height: 120%;
+  color: var(--black);
+  margin-bottom: 20px;
+}
+.login .branding-section .branding-info p {
+  font-family: "DIN Next LT W23";
+  font-size: 19;
+  line-height: 150%;
+  color: var(--grey);
+}
+.login .branding-section:after {
+  content: "";
+  background: #2e70b4;
+  width: 4px;
+  height: 100%;
+  right: 0;
+  position: absolute;
 }/*# sourceMappingURL=styles.css.map */

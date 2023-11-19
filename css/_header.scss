@@ -1,8 +1,8 @@
 header.header {
     z-index: 99;
     position: fixed;
-    left: 0;
-    right: 0;
+    inset-inline-start: 0;
+    inset-inline-end: 0;
     top: 0;
     background: var(--white);
     // box-shadow: var(--box-shadow);
@@ -32,15 +32,30 @@ header.header {
     .search-wrap {
       position: relative;
       width: 20%;
-      margin-right: auto;
-      margin-left: 10%;
+      margin-inline-end: auto;
+      margin-inline-start: 10%;
+      form{
+        position: relative;
+        &:after{
+          content:"";
+          width: 21px;
+          height: 21px;
+          position: absolute;
+          background: url(../images/ic-search.svg) no-repeat;
+          background-size: cover;
+          inset-inline-end: 3%;
+          top: 10px;
+        }
+      }
       input {
         @include default-text($font-regular, 18px, 150%, var(--grey));
         border-radius: 32px;
-        background: var(--site_bg) url(../images/ic-search.svg) no-repeat;
+        background: var(--site_bg) ;
         border: none !important;
-        padding: 10px 38px 10px 24px;
-        background-position: 94% center;
+        padding-top: 10px;
+        padding-inline-end: 38px;
+        padding-top: 10px;
+        padding-inline-start: 24px;
         &:active,
         &:focus {
           box-shadow: none;
@@ -73,7 +88,7 @@ header.header {
                   width: 20px;
                   height: 20px;
                   border-radius: 5px;
-                  margin-right: 5px;
+                  margin-inline-end: 5px;
                   position: relative;
                   top: -2px;
                 }
@@ -83,7 +98,7 @@ header.header {
                 }
               }
               @media (min-width: $md) {
-                right: 0;
+                inset-inline-end: 0;
                 will-change: transform;
                 animation: menu-sub-dropdown-animation-fade-in 0.3s ease 1,
                   menu-sub-dropdown-animation-move-up 0.3s ease 1;
@@ -122,7 +137,9 @@ header.header {
               span.counter {
                 position: absolute;
                 top: -10px;
-                left: -5px;
+                // left: -5px;
+                // @include direction($left:-5px);
+                inset-inline-start: -5px;
                 background: var(--secondary);
                 width: 24px;
                 height: 24px;

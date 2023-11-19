@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>SystemNow</title>
+    <!-- Favicon-->
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico" />
+    <link href="css/bootstrap.min.css" rel="stylesheet" />
+    <link href="css/styles.css" rel="stylesheet" />
+</head>
+
+<body>
+    <div class="login">
+        <div class="branding-section">
+            <div class="logo"><a href="index.html"><img src="images/login-logo.svg" alt="logo"></a></div>
+            <div class="branding-info">
+                <span data-lang="digital-business">Digital Business</span>
+                <h1 data-lang="digital-business-slogan">Digital Business From Scratch to Launch!</h1>
+                <p data-lang="digital-business-description">They are ready-to-use electronic products in the form of platforms, applications, and related support work. In addition to integrated technical solutions that aimed in developing innovative products according to the customer's need.</p>
+            </div>
+      </div>
+         <div class="login-section">
+            <!-- Language switcher button -->
+           <div class="lang-switch" onclick="toggleLanguage()" data-lang="digital-business-lang">English</div>
+           <!-- Tabbed login and signup forms -->
+            <div class="login-contents">
+                <ul class="nav nav-tabs" id="authTabs" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link active" id="login-tab" data-bs-toggle="tab" data-bs-target="#login" type="button" role="tab" aria-controls="login" aria-selected="true" data-lang="sign-in">Sign in</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="signup-tab" data-bs-toggle="tab" data-bs-target="#signup" type="button" role="tab" aria-controls="signup" aria-selected="false" data-lang="sign-up">Sign up</button>
+                    </li>
+                </ul>
+               
+                <div class="tab-content" id="authTabsContent">
+                    <div class="tab-pane fade show active" id="login" role="tabpanel" aria-labelledby="login-tab">
+                        <div class="frm-title" data-lang="sign-in-to-your-account">
+                            Sign in to your account
+                        </div>
+                        <!-- Login form -->
+                        <form class="login-form mt-4">
+                            <div class="mb-3">
+                                <input type="text" class="form-control" id="login-username" placeholder="username or email" data-lang="username-or-email">
+                            </div>
+                            <div class="mb-3">
+                                <input type="password" class="form-control" id="login-password" placeholder="Password" data-lang="password">
+                            </div>
+                            <div class="mb-2 form-check">
+                                <input type="checkbox" class="form-check-input" id="remember-me">
+                                <label class="form-check-label" for="remember-me" data-lang="remember-me">Remember me</label>
+                            </div>
+                            <button type="submit" class="btn btn-frm-submit" data-lang="login">Login</button>
+                            <div class="mb-2 forgot-check">
+                                <a href="#" class="link-secondary"><strong data-lang="forgot-password">Forgot password</strong></a>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="tab-pane fade" id="signup" role="tabpanel" aria-labelledby="signup-tab">
+                        <!-- Signup form -->
+                        <form class="signup-form mt-4">
+                            <div class="mb-3">
+                                <input type="text" class="form-control" id="signup-username" placeholder="username" data-lang="username">
+                            </div>
+                            <div class="mb-3">
+                                <input type="email" class="form-control" id="signup-email" placeholder="Email" data-lang="email">
+                            </div>
+                            <div class="mb-3">
+                                <input type="password" class="form-control" id="signup-password" placeholder="Password" data-lang="password">
+                            </div>
+                            <div class="mb-3">
+                                <input type="password" class="form-control" id="signup-confirm-password" placeholder="Confirm password" data-lang="confirm-password">
+                            </div>
+                            <button type="submit" class="btn btn-frm-submit" data-lang="sign-up">Sign Up</button>
+                        </form>
+                    </div>
+                </div>
+                
+            </div> 
+       </div>
+    </div>
+
+    <!-- Bootstrap core JS-->
+    <script src="js/bootstrap.min.js"></script>
+    <!-- Core theme JS-->    
+    <script src="js/languages.js"></script>
+    <script src="js/scripts.js"></script>
+
+</body>
+
+</html>
