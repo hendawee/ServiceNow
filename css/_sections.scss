@@ -216,7 +216,10 @@ section.frist-section {
             background: none;
             outline: none !important;
             border: 0 !important;
-            padding: 10px 20px 10px 60px;
+            padding-inline-start: 60px;
+            padding-inline-end: 20px;
+            padding-top: 10px;
+            padding-bottom: 10px;
             justify-content: space-between;
             > span {
               color: #121212;
@@ -284,9 +287,12 @@ section.frist-section {
                 url(../images/ic-siderbar-arrow.svg) no-repeat;
               width: 34px;
               height: 34px;
-              left: 14px;
+              inset-inline-start: 14px;
               position: absolute;
               background-position: center center;
+              .rtl &{
+                transform: rotate(180deg);
+              }
             }
 
             &[aria-expanded="true"] {
@@ -338,15 +344,19 @@ section.frist-section {
                   background: #922a8e;
                   color: #fff;
                   display: block;
-                  padding: 2px 25px 2px 0px;
+                  padding-inline-start: 0;
+                  padding-inline-end: 25px;
+                  padding-top: 2px;
+                  padding-bottom: 2px;
+                  
                   opacity: 0.8;
                   &:hover {
                     opacity: 1;
                   }
                   svg {
-                    margin-right: 10px;
+                    margin-inline-end: 10px;
                     path {
-                      fill: #fff;
+                      fill: var(--white);
                     }
                   }
                 }
@@ -354,7 +364,7 @@ section.frist-section {
               .all {
                 a {
                   border-radius: 22px;
-                  background: #0b71ba;
+                  background: var(--primary);
                   color: #fff;
                   display: block;
                   padding: 7px 25px 8px;
