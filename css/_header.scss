@@ -1,18 +1,29 @@
 header.header {
-    z-index: 99;
-    position: fixed;
-    inset-inline-start: 0;
-    inset-inline-end: 0;
-    top: 0;
-    background: var(--white);
+  z-index: 99;
+  position: fixed;
+  inset-inline-start: 0;
+  inset-inline-end: 0;
+  top: 0;
+  background: var(--white);
   .container-fluid {
-    @include flex-box ($display: flex,$justify-content: space-between,$align-items: center,$flex-direction: row) ;
+    @include flex-box(
+      $display: flex,
+      $justify-content: space-between,
+      $align-items: center,
+      $flex-direction: row
+    );
     padding: 14px 48px;
     .logo-wrap {
-      @include flex-box ($display: flex,$justify-content: space-between,$align-items: center,$flex-direction: row,$flex:0 0 15%) ;
+      @include flex-box(
+        $display: flex,
+        $justify-content: space-between,
+        $align-items: center,
+        $flex-direction: row,
+        $flex: 0 0 15%
+      );
       .logo {
         img {
-          height: 46px;
+          height: 45px;
         }
       }
       .sidebarToggle {
@@ -33,10 +44,10 @@ header.header {
       width: 20%;
       margin-inline-end: auto;
       margin-inline-start: 10%;
-      form{
+      form {
         position: relative;
-        &:after{
-          content:"";
+        &:after {
+          content: "";
           width: 21px;
           height: 21px;
           position: absolute;
@@ -49,7 +60,7 @@ header.header {
       input {
         @include default-text($font-regular, 18px, 150%, var(--grey));
         border-radius: 32px;
-        background: var(--site_bg) ;
+        background: var(--site_bg);
         border: none !important;
         padding-top: 10px;
         padding-inline-end: 38px;
@@ -65,7 +76,12 @@ header.header {
     nav.navbar {
       padding: 0;
       .navbar-nav {
-        @include flex-box ($display: flex,$justify-content: space-between,$align-items: center,$flex-direction: row) ;
+        @include flex-box(
+          $display: flex,
+          $justify-content: space-between,
+          $align-items: center,
+          $flex-direction: row
+        );
         gap: 10px;
         .nav-item {
           position: relative;
@@ -76,7 +92,11 @@ header.header {
               padding: 0;
               width: 44px;
               height: 44px;
-              @include flex-box ($display: flex,$justify-content: center,$align-items: center) ;
+              @include flex-box(
+                $display: flex,
+                $justify-content: center,
+                $align-items: center
+              );
               background: var(--site_bg);
               border-radius: 50%;
             }
@@ -98,15 +118,15 @@ header.header {
               }
               @media (min-width: $md) {
                 inset-inline-end: 0;
-                will-change: transform;
                 animation: menu-sub-dropdown-animation-fade-in 0.3s ease 1,
                   menu-sub-dropdown-animation-move-up 0.3s ease 1;
                 z-index: 1;
                 position: fixed;
-                inset: 0px 0px auto auto;
                 margin: 0px;
-                transform: translate3d(-34px, 59px, 0px);
                 border: none;
+                inset-block-start: 0;
+                inset-inline-end: 55px;
+                top: 55px;
                 box-shadow: var(--box-shadow);
               }
             }
@@ -119,16 +139,15 @@ header.header {
               }
             }
           }
-          &.language{
+          &.language {
             .dropdown-menu {
-                min-width: 200px;
-                a{
-                    padding: 5px 15px;
-                    color: var(--black);
-                }
+              min-width: 200px;
+              a {
+                padding: 5px 15px;
+                color: var(--black);
+                text-align: start;
+              }
             }
-            
-          
           }
           &.notification {
             a.nav-link {
@@ -152,10 +171,16 @@ header.header {
                 @include default-text($font-medium, 18px, 150%, var(--black));
                 border-bottom: 0.5px solid var(--light-grey);
                 padding: 10px 20px;
+                text-align: start;
               }
               .bx-list {
                 .symbol {
-                  @include flex-box ($display: flex,$justify-content: stretch,$align-items: start) ;
+                  @include flex-box(
+                    $display: flex,
+                    $justify-content: stretch,
+                    $align-items: start
+                  );
+                  text-align: start;
                   padding: 10px 20px;
                   img {
                     margin-top: 8px;
@@ -208,6 +233,7 @@ header.header {
                 gap: 1rem;
                 border-bottom: 0.5px solid var(--light-grey);
                 margin-bottom: 10px;
+                text-align: start;
                 img {
                   border-radius: 50%;
                   width: 50px;
@@ -216,8 +242,12 @@ header.header {
                 .info {
                   p.name {
                     margin: 0;
-                    @include default-text($font-medium, 18px, 150%, var(--black));
-
+                    @include default-text(
+                      $font-medium,
+                      18px,
+                      150%,
+                      var(--black)
+                    );
                   }
                   p.pos {
                     margin: 0;
@@ -231,7 +261,12 @@ header.header {
                   padding: 0;
                   margin: 0;
                   a {
-                    @include flex-box ($display: flex,$justify-content: space-between,$align-items: start,$flex-direction:row) ;
+                    @include flex-box(
+                      $display: flex,
+                      $justify-content: space-between,
+                      $align-items: start,
+                      $flex-direction: row
+                    );
                     padding: 6px 15px;
                     color: var(--grey);
                     &:hover {

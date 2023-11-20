@@ -1,8 +1,8 @@
 section.frist-section {
   align-items: center;
-
   .welcome {
     position: relative;
+    text-align: start;
     > span {
       @include default-text($font-regular, 22px, 150%, var(--primary));
       display: block;

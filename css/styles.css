@@ -136,18 +136,10 @@ body {
   text-align: left;
 }
 
-.ltr .nav-tabs .nav-link.active {
-  /* Specific LTR styles if necessary */
-}
-
 /* RTL specific styles */
 .rtl {
   direction: rtl;
   text-align: right;
-}
-
-.rtl .nav-tabs .nav-link.active {
-  /* Specific RTL styles if necessary */
 }
 
 header.header {
@@ -173,7 +165,7 @@ header.header .container-fluid .logo-wrap {
   flex: 0 0 15%;
 }
 header.header .container-fluid .logo-wrap .logo img {
-  height: 46px;
+  height: 45px;
 }
 header.header .container-fluid .logo-wrap .sidebarToggle {
   background-color: transparent;
@@ -264,14 +256,14 @@ header.header .container-fluid nav.navbar .navbar-nav .nav-item.language .dropdo
 @media (min-width: 769px) {
   header.header .container-fluid nav.navbar .navbar-nav .nav-item.language .dropdown-menu, header.header .container-fluid nav.navbar .navbar-nav .nav-item.notification .dropdown-menu, header.header .container-fluid nav.navbar .navbar-nav .nav-item.user-panel .dropdown-menu {
     inset-inline-end: 0;
-    will-change: transform;
     animation: menu-sub-dropdown-animation-fade-in 0.3s ease 1, menu-sub-dropdown-animation-move-up 0.3s ease 1;
     z-index: 1;
     position: fixed;
-    inset: 0px 0px auto auto;
     margin: 0px;
-    transform: translate3d(-34px, 59px, 0px);
     border: none;
+    inset-block-start: 0;
+    inset-inline-end: 55px;
+    top: 55px;
     box-shadow: var(--box-shadow);
   }
 }
@@ -287,6 +279,7 @@ header.header .container-fluid nav.navbar .navbar-nav .nav-item.language .dropdo
 header.header .container-fluid nav.navbar .navbar-nav .nav-item.language .dropdown-menu a {
   padding: 5px 15px;
   color: var(--black);
+  text-align: start;
 }
 header.header .container-fluid nav.navbar .navbar-nav .nav-item.notification a.nav-link {
   position: relative;
@@ -313,11 +306,13 @@ header.header .container-fluid nav.navbar .navbar-nav .nav-item.notification .dr
   color: var(--black);
   border-bottom: 0.5px solid var(--light-grey);
   padding: 10px 20px;
+  text-align: start;
 }
 header.header .container-fluid nav.navbar .navbar-nav .nav-item.notification .dropdown-menu .bx-list .symbol {
   display: flex;
   justify-content: stretch;
   align-items: start;
+  text-align: start;
   padding: 10px 20px;
 }
 header.header .container-fluid nav.navbar .navbar-nav .nav-item.notification .dropdown-menu .bx-list .symbol img {
@@ -363,6 +358,7 @@ header.header .container-fluid nav.navbar .navbar-nav .nav-item.user-panel .drop
   gap: 1rem;
   border-bottom: 0.5px solid var(--light-grey);
   margin-bottom: 10px;
+  text-align: start;
 }
 header.header .container-fluid nav.navbar .navbar-nav .nav-item.user-panel .dropdown-menu .user-info img {
   border-radius: 50%;
@@ -484,6 +480,7 @@ section.frist-section {
 }
 section.frist-section .welcome {
   position: relative;
+  text-align: start;
 }
 section.frist-section .welcome > span {
   font-family: "DIN Next LT W23";

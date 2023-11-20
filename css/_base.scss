@@ -100,32 +100,16 @@ body {
   margin-top: 88px;
 }
 
-// $direction: 'left'; // Dont't Remove or Edit this line
-// $reverse-direction: 'right'; // Dont't Remove or Edit this line
-
-// .fixed-element {
-//   position: fixed;
-//   top: 10px;
-//   #{$direction}: 10px;
-// }
-
 /* LTR specific styles */
 .ltr {
   direction: ltr;
   text-align: left;
 }
 
-.ltr .nav-tabs .nav-link.active {
-  /* Specific LTR styles if necessary */
-}
 
 /* RTL specific styles */
 .rtl {
   direction: rtl;
   text-align: right;
-}
-
-.rtl .nav-tabs .nav-link.active {
-  /* Specific RTL styles if necessary */
 }
 
