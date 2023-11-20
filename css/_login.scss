@@ -1,179 +1,148 @@
-  .login {
-    display: flex;
-    flex-direction: row;
-    height: 100vh;
+.login {
+  display: flex;
+  flex-direction: row;
+   @include flex-box ($display: flex,$flex-direction: row) ;
+  height: 100vh;
+  @media (max-width: $lg) {
+    flex-direction: column;
+  }
+  .login-section {
+    width: 33.333%;
+    background-color: var(--primary);
+    @include flex-box ($display: flex,$justify-content: center,$align-items: center) ;
     @media (max-width: $lg) {
-        flex-direction: column;
+      width: 100%;
+      padding: 70px 20px;
     }
-    .login-section {
-        width: 33.333%;
-        background-color: var(--primary);
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        @media (max-width: $lg) {
+    .lang-switch {
+      position: fixed;
+      top: 5%;
+      inset-inline-end: 5%;
+      padding: 10px 20px;
+      cursor: pointer;
+      border: 1px solid var(--white-half);
+      z-index: 99;
+      border-radius: 5px;
+      background: rgba(255, 255, 255, 0.1);
+      color: var(--white);
+      font-size: 20px;
+      @media (max-width: $lg) {
+        background: var(--secondary);
+        top: 60px;
+        position: absolute;
+        padding: 5px 15px 10px;
+        border-radius: 30px;
+      }
+    }
+    .login-contents {
+      @include flex-box ($display: flex,$align-items: center,$flex-direction:column) ;
+      width: 100%;
+      max-width: 460px;
+      border-radius: 12px;
+      background: var(--site_bg);
+      box-shadow: var(--box-shadow);
+      gap: 20px;
+      padding: 36px;
+      ul {
+        @include flex-box ($display: flex,$justify-content: space-between) ;
+        width: 100%;
+        gap: 5px;
+        padding: 0;
+        li {
+          flex-grow: 1;
+          button {
             width: 100%;
-            padding: 70px 20px;
-            
-        }
-      
-        .lang-switch{
-            position: fixed;
-            top: 5%;
-            inset-inline-end: 5%;
-            padding: 10px 20px;
-            cursor: pointer;
-            border: 1px solid rgb(255 255 255 / 30%);
-            z-index: 99;
-            border-radius: 5px;
-            background: rgba(255, 255, 255, 0.1);
-            color: #fff;
-            font-size: 20px;
-            line-height: 150%;
-            @media (max-width: $lg) {
-                background: #87348a;
-                top: 60px;
-                position: absolute;
-                padding: 5px 15px 10px;
-                border-radius: 30px;
+            text-align: center;
+            @include default-text($font-regular, 18px, 150%, var(--grey));
+            box-shadow: none;
+            outline: none;
+            border: none;
+            border-bottom: 4px solid var(--light-grey);
+            &.active {
+              color: var(--primary);
+              border: none;
+              background: transparent;
+              border-bottom: 4px solid var(--primary);
             }
+          }
         }
-        .login-contents {
-            width: 100%;
-            max-width: 460px;
-            border-radius: 12px;
-            background: #FAFAFA;
-            box-shadow: 0px 12px 24px 0px rgba(45, 42, 50, 0.06);
-            display: flex;
-            padding: 36px;
-            flex-direction: column;
-            align-items: center;
-            gap: 20px;
-             ul{
-                width: 100%;
-                display: flex;
-                justify-content: space-between;
-                gap: 5px;
-                padding: 0;
-                li{
-                    flex-grow: 1;
-                    button{
-                        width: 100%;
-                    color: #969599;
-                    text-align: center;
-                    font-family: DIN Next LT W23;
-                    font-style: normal;
-                    font-weight: 750;
-                    line-height: normal;
-                    font-size: 18px;
-                    box-shadow: none;
-                    outline: none;
-                    border: none;
-                    border-bottom: 4px solid #808080;
-                    &.active {
-                        color: #0270b9;
-                        border: none;
-                        background: transparent;
-                        border-bottom: 4px solid #0270b9;
-                    }
-                    }
-                    
+      }
+      .frm-title {
+        @include default-text($font-regular, 30px, 150%, var(--black));
+        text-align: center;
+      }
+      .tab-content {
+        width: 100%;
+        .form-control {
+          border-radius: 12px;
+          border: 1px solid var(--light-grey);
+          background: var(--white);
+          width: 100%;
+          height: 50px;
+          padding: 15px 20px;
+          font-size: 18px;
+        }
+        button.btn-frm-submit {
+          border-radius: 12px;
+          background: var(--primary);
+          width: 100%;
+          padding: 15px;
+          margin: 40px 0px 15px;
+          color: var(--white);
+        }
+      }
+    }
+  }
+  .branding-section {
+    @include flex-box ($display: flex,$justify-content: center, $align-items: center) ;
+    flex: 1;
+    background-color: var(--white);
+    position: relative;
+    background: url("../images/login-vector.svg") no-repeat;
+    background-size: cover;
+    @media (max-width: $lg) {
+      align-items: start;
+      flex-direction: column;
+      padding: 70px 20px;
+      width: auto;
+    }
 
-                }
-            }
-            .frm-title{
-                text-align: center;
-                color: #121212;
-                text-align: center;
-                font-family: DIN Next LT W23;
-                font-size: 30px;
-                font-style: normal;
-                font-weight: 700;
-                line-height: normal;
-            }
-            .tab-content{
-                width: 100%;
-                .form-control{
-                    border-radius: 12px;
-                    border: 1px solid #EDF1E7;
-                    background: #FAFAFA;
-                    display: flex;
-                    width: 100%;
-                    height: 60px;
-                    padding: 18px 24px;
-                    align-items: center;
-                    gap: 12px;
-                    box-shadow: none;
-                    font-size: 18px;
-                }
-                button.btn-frm-submit {
-                    border-radius: 12px;
-                    background: #0070B9;
-                    width: 100%;
-                    display: flex;
-                    padding: 15px;
-                    justify-content: center;
-                    margin: 40px 0px 15px;
-                    color: #fff;
-                }
-            }
-        }
-    }
-    .branding-section { 
-        flex: 1; 
-        background-color: var(--white);
-        display: flex;
-        justify-content: center;
-        align-items: center;
+    .logo {
+      position: absolute;
+      top: 5%;
+      inset-inline-start: 5%;
+      @media (max-width: $lg) {
         position: relative;
-        background: url('../images/login-vector.svg') no-repeat;
-        background-size: cover;
-        @media (max-width: $lg) {
-            align-items: start;
-            flex-direction: column;
-            padding: 70px 20px;
-            width: auto;
-        }
-       
-
-        .logo {
-            position: absolute;
-            top: 5%;
-            // @include direction($left:5%); 
-            inset-inline-start: 5%;
-            @media (max-width: $lg) {
-                position: relative;
-                top: -40px;
-            }
-        }
-        .branding-info{
-            width: 100%;
-            max-width: 460px;
-            span{
-                @include default-text($font-regular, 18px, 150%, var(--primary));
-            }
-            h1{
-                @include default-text($font-medium, 48px, 120%, var(--black));
-                margin-bottom: 20px;
-                @media (max-width: $lg) {
-                    font-size: 38px; 
-                }
-                   
-               
-            }
-            p{
-                @include default-text($font-regular, 19, 150%, var(--grey));
-            }
-           
-        }
-        &:after {
-                content: "";
-                background: #2e70b4;
-                width: 4px;
-                height: 100%;
-                right: 0;
-                position: absolute;
-            
-        }
+        top: -40px;
+      }
     }
+    .branding-info {
+      width: 100%;
+      max-width: 460px;
+      span {
+        @include default-text($font-regular, 18px, 150%, var(--primary));
+      }
+      h1 {
+        @include default-text($font-medium, 48px, 120%, var(--black));
+        margin-bottom: 20px;
+        @media (max-width: $lg) {
+          font-size: 38px;
+        }
+      }
+      p {
+        @include default-text($font-regular, 19, 150%, var(--grey));
+      }
+    }
+    &:after {
+      content: "";
+      background: var(--primary);
+      width: 4px;
+      height: 100%;
+      inset-inline-end: 0;
+      position: absolute;
+      @media (max-width: $lg) {
+        display: none;   
+      }
+    }
+  }
 }

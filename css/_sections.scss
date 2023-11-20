@@ -21,9 +21,7 @@ section.frist-section {
       padding: 0;
       margin: 0;
       list-style: none;
-      @include flex-bx(flex, space-between, center);
-
-
+      @include flex-box ($display: flex,$justify-content: space-between,$align-items: center) ;
       flex-wrap: wrap;
       li { 
         display: flex;

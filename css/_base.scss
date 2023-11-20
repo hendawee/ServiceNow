@@ -73,6 +73,7 @@ body {
   font-family: $font-regular;
   color: var(--text_color);
   background-color: var(--white);
+  line-height: 150%;
 
   &.sb-sidenav-toggled {
     #sidebar-wrapper {

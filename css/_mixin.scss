@@ -5,21 +5,22 @@
     color:$color
   }    
 
-  @mixin flex-bx ($display, $justify-content , $align-items,$flex-direction:row ,$flex:none)
-   {
-    display: $display;
-    flex-direction: $flex-direction;
-    justify-content: $justify-content;
-    align-items: $align-items;
-    flex: $flex;
-  }
 
-  @mixin direction($left: null, $right: null) {
-    @if $right != null {
-      inset-inline-end: $right;
+  @mixin flex-box ($display: null,$justify-content: null,$align-items: null,$flex-direction: null,$flex: null) {
+    @if $display != null {
+      display: $display;
     }
-    @if $left != null {
-      inset-inline-start: $left;
+    @if $justify-content != null {
+      justify-content: $justify-content;
+    }
+    @if $align-items != null {
+      align-items: $align-items;
+    }
+    @if $flex-direction != null {
+      flex-direction: $flex-direction;
+    }
+    @if $flex != null {
+      flex: $flex;
     }
     
   }
