@@ -42,10 +42,6 @@ document.addEventListener("DOMContentLoaded", function () {
       this.classList.toggle("active");
     });
   });
-  var savedLang = localStorage.getItem('lang');
-  if (savedLang) {
-      setLanguage(savedLang);
-  }
 });
 
 function checkSize() {
@@ -61,3 +57,4 @@ checkSize();
 
 // Add the event listener for resize
 window.addEventListener("resize", checkSize);
+

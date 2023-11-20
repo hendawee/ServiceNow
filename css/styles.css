@@ -112,11 +112,21 @@ body {
     margin-left: -350px;
   }
 }
+@media (min-width: 350px) {
+  body.sb-sidenav-toggled.rtl #sidebar-wrapper {
+    margin-left: 0;
+    margin-right: -350px;
+  }
+}
 
 #page-content-wrapper {
   padding: 48px;
   background: var(--site_bg);
   border-top-left-radius: 60px;
+}
+.rtl #page-content-wrapper {
+  border-top-right-radius: 60px;
+  border-top-left-radius: initial;
 }
 @media (min-width: 350px) {
   #page-content-wrapper {
@@ -398,7 +408,7 @@ header.header .container-fluid nav.navbar .navbar-nav .nav-item.user-panel .drop
   background: var(--white);
   width: 350px;
   height: 100vh;
-  margin-left: 0px;
+  margin-inline-start: 0px;
   transition: margin 0.25s ease-out;
   padding: 50px 0;
 }
@@ -406,11 +416,11 @@ header.header .container-fluid nav.navbar .navbar-nav .nav-item.user-panel .drop
   list-style: none;
   padding: 0;
   margin: 0;
+  width: inherit;
 }
 @media (min-width: 769px) {
   #sidebar-wrapper .sidebar-nav {
     position: fixed;
-    width: 280px;
   }
 }
 #sidebar-wrapper .sidebar-nav > li a.list-group-item {
@@ -431,13 +441,11 @@ header.header .container-fluid nav.navbar .navbar-nav .nav-item.user-panel .drop
 #sidebar-wrapper .sidebar-nav > li a.list-group-item.active {
   background-color: var(--site_bg);
   color: var(--secondary);
-  border-top-right-radius: 3px;
-  border-bottom-right-radius: 3px;
 }
 #sidebar-wrapper .sidebar-nav > li a.list-group-item.active::before {
   content: "";
   position: absolute;
-  left: 0px;
+  inset-inline-start: 0px;
   top: 0;
   width: 5px;
   height: 100%;
@@ -459,13 +467,16 @@ header.header .container-fluid nav.navbar .navbar-nav .nav-item.user-panel .drop
   background: url(../images/ic-siderbar-arrow.svg) no-repeat;
   width: 24px;
   height: 24px;
-  right: 10px;
+  inset-inline-end: 10px;
   top: 20%;
 }
 @media (min-width: 769px) {
   #sidebar-wrapper .sidebar-nav > li a.list-group-item[data-bs-toggle=collapse]::after {
-    right: 6%;
+    inset-inline-end: 20%;
     top: 31%;
+  }
+  .rtl #sidebar-wrapper .sidebar-nav > li a.list-group-item[data-bs-toggle=collapse]::after {
+    transform: rotate(180deg);
   }
 }
 #sidebar-wrapper .sidebar-nav > li a.list-group-item[data-bs-toggle=collapse].active:not(.collapsed)::after {

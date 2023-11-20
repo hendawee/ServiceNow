@@ -2,16 +2,18 @@
   background: var(--white);
   width: 350px;
   height: 100vh;
-  margin-left: 0px;
+  // margin-left: 0px;
+  margin-inline-start: 0px;
   transition: margin 0.25s ease-out;
   padding: 50px 0;
+  
   .sidebar-nav {
     list-style: none;
     padding: 0;
     margin: 0;
+    width: inherit;
     @media (min-width: $md) {
       position: fixed;
-      width: 280px;
     }
 
     > li {
@@ -27,13 +29,10 @@
         &.active {
           background-color:var(--site_bg);
           color: var(--secondary);
-          border-top-right-radius: 3px;
-          border-bottom-right-radius: 3px;
-
           &::before {
             content: "";
             position: absolute;
-            left: 0px;
+            inset-inline-start: 0px;
             top: 0;
             width: 5px;
             height: 100%;
@@ -59,11 +58,14 @@
             background: url(../images/ic-siderbar-arrow.svg) no-repeat;
             width: 24px;
             height: 24px;
-            right: 10px;
+            inset-inline-end: 10px;
             top: 20%;
             @media (min-width: $md) {
-              right: 6%;
+              inset-inline-end: 20%;
               top: 31%;
+              .rtl &{
+                transform: rotate(180deg);
+              }
             }
           }
           &.active:not(.collapsed) {

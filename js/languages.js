@@ -46,11 +46,10 @@ function translatePageTo(language) {
     }
   });
 }
-
+var body = document.body;
 // Function to toggle language
 function toggleLanguage() {
-  var html = document.documentElement;
-  if (html.getAttribute("lang") === "en") {
+  if (body.getAttribute("lang") === "en") {
     setLanguage("ar");
     translatePageTo("ar");
   } else {
@@ -60,17 +59,16 @@ function toggleLanguage() {
 }
 // Function to set language
 function setLanguage(lang) {
-  var html = document.documentElement;
   if (lang === "ar") {
-    html.classList.remove("ltr");
-    html.classList.add("rtl");
+    body.classList.remove("ltr");
+    body.classList.add("rtl");
     localStorage.setItem("lang", "ar");
-    html.lang = "ar";
+    body.lang = "ar";
   } else {
-    html.classList.remove("rtl");
-    html.classList.add("ltr");
+    body.classList.remove("rtl");
+    body.classList.add("ltr");
     localStorage.setItem("lang", "en");
-    html.lang = "en";
+    body.lang = "en";
   }
 }
 

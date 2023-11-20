@@ -28,7 +28,7 @@ $font-medium: "DIN Next LT W23 Medium";
 
 a {
   text-decoration: none;
-  transition: 0.3s all ease;
+  transition: 0.3s all ease; 
 }
 
 ::-webkit-scrollbar {
@@ -39,7 +39,7 @@ a {
 /* Track */
 
 ::-webkit-scrollbar-track {
-  border-radius: 3px;
+  border-radius: 3px; 
   background-color: var(--border);
 }
 
@@ -77,18 +77,29 @@ body {
 
   &.sb-sidenav-toggled {
     #sidebar-wrapper {
-    //   margin-left: 0;
       @media (min-width: $xxs) {
         margin-left: -350px;
+      }
+    }
+    &.rtl {
+      #sidebar-wrapper {
+        @media (min-width: $xxs) {
+          margin-left: 0;
+          margin-right: -350px;
+        }
       }
     }
   }
 }
 #page-content-wrapper {
-//   min-width: 100vw;
   padding: 48px;
   background: var(--site_bg);
   border-top-left-radius: 60px;
+  .rtl & {
+    border-top-right-radius: 60px;
+    border-top-left-radius: initial;
+  } 
+
   @media (min-width: $xxs) {
     min-width: 0;
     width: 100%;
@@ -103,7 +114,7 @@ body {
 /* LTR specific styles */
 .ltr {
   direction: ltr;
-  text-align: left;
+  text-align: left; 
 }
 
 
