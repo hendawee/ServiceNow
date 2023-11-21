@@ -1,20 +1,21 @@
 #sidebar-wrapper {
   background: var(--white);
-  width: 350px;
+  width: 290px;
   height: 100vh;
   // margin-left: 0px;
   margin-inline-start: 0px;
-  transition: margin 0.25s ease-out;
+  transition: all 0.25s ease-out;
   padding: 50px 0;
+  @media (min-width: $md) {
+    position: fixed;
+  }
   
   .sidebar-nav {
     list-style: none;
     padding: 0;
     margin: 0;
     width: inherit;
-    @media (min-width: $md) {
-      position: fixed;
-    }
+
 
     > li {
       a.list-group-item {
@@ -23,9 +24,6 @@
           padding: 12px 10px 12px 20px;
         }
         @include default-text($font-regular, 18px, 150%, var(--black));
-        display: flex;
-        align-items: center;
-        cursor: pointer;
         &.active {
           background-color:var(--site_bg);
           color: var(--secondary);
@@ -61,7 +59,7 @@
             inset-inline-end: 10px;
             top: 20%;
             @media (min-width: $md) {
-              inset-inline-end: 20%;
+              inset-inline-end: 10px;
               top: 31%;
               .rtl &{
                 transform: rotate(180deg);

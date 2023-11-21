@@ -107,31 +107,33 @@ body {
   background-color: var(--white);
   line-height: 150%;
 }
-@media (min-width: 350px) {
-  body.sb-sidenav-toggled #sidebar-wrapper {
-    margin-left: -350px;
-  }
-}
-@media (min-width: 350px) {
-  body.sb-sidenav-toggled.rtl #sidebar-wrapper {
-    margin-left: 0;
-    margin-right: -350px;
-  }
-}
-
-#page-content-wrapper {
-  padding: 48px;
+body #page-content-wrapper {
+  padding: 40px;
   background: var(--site_bg);
-  border-top-left-radius: 60px;
-}
-.rtl #page-content-wrapper {
-  border-top-right-radius: 60px;
-  border-top-left-radius: initial;
+  transition: all 0.25s ease-out;
 }
 @media (min-width: 350px) {
-  #page-content-wrapper {
+  body #page-content-wrapper {
     min-width: 0;
     width: 100%;
+    padding-inline-start: 320px;
+    border-top-left-radius: 60px;
+  }
+}
+@media (min-width: 350px) {
+  body.rtl #page-content-wrapper {
+    border-top-right-radius: 60px;
+    border-top-left-radius: initial;
+  }
+}
+@media (min-width: 350px) {
+  body.sb-sidenav-toggled #sidebar-wrapper {
+    margin-inline-start: -320px;
+  }
+}
+@media (min-width: 350px) {
+  body.sb-sidenav-toggled #page-content-wrapper {
+    padding-inline-start: 40px;
   }
 }
 
@@ -205,8 +207,8 @@ header.header .container-fluid .search-wrap form:after {
   position: absolute;
   background: url(../images/ic-search.svg) no-repeat;
   background-size: cover;
-  inset-inline-end: 3%;
-  top: 10px;
+  inset-inline-end: 15px;
+  top: 12px;
 }
 header.header .container-fluid .search-wrap input {
   font-family: "DIN Next LT W23";
@@ -406,11 +408,16 @@ header.header .container-fluid nav.navbar .navbar-nav .nav-item.user-panel .drop
 
 #sidebar-wrapper {
   background: var(--white);
-  width: 350px;
+  width: 290px;
   height: 100vh;
   margin-inline-start: 0px;
-  transition: margin 0.25s ease-out;
+  transition: all 0.25s ease-out;
   padding: 50px 0;
+}
+@media (min-width: 769px) {
+  #sidebar-wrapper {
+    position: fixed;
+  }
 }
 #sidebar-wrapper .sidebar-nav {
   list-style: none;
@@ -418,20 +425,12 @@ header.header .container-fluid nav.navbar .navbar-nav .nav-item.user-panel .drop
   margin: 0;
   width: inherit;
 }
-@media (min-width: 769px) {
-  #sidebar-wrapper .sidebar-nav {
-    position: fixed;
-  }
-}
 #sidebar-wrapper .sidebar-nav > li a.list-group-item {
   padding: 10px;
   font-family: "DIN Next LT W23";
   font-size: 18px;
   line-height: 150%;
   color: var(--black);
-  display: flex;
-  align-items: center;
-  cursor: pointer;
 }
 @media (min-width: 769px) {
   #sidebar-wrapper .sidebar-nav > li a.list-group-item {
@@ -472,7 +471,7 @@ header.header .container-fluid nav.navbar .navbar-nav .nav-item.user-panel .drop
 }
 @media (min-width: 769px) {
   #sidebar-wrapper .sidebar-nav > li a.list-group-item[data-bs-toggle=collapse]::after {
-    inset-inline-end: 20%;
+    inset-inline-end: 10px;
     top: 31%;
   }
   .rtl #sidebar-wrapper .sidebar-nav > li a.list-group-item[data-bs-toggle=collapse]::after {
@@ -484,6 +483,257 @@ header.header .container-fluid nav.navbar .navbar-nav .nav-item.user-panel .drop
 }
 #sidebar-wrapper .sidebar-nav > li ul {
   list-style: none !important;
+}
+
+.table-responsive {
+  overflow-x: auto;
+}
+.table-responsive .cases-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.table-responsive .cases-table tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+.table-responsive .cases-table tr:hover {
+  background-color: #f2f2f2;
+}
+.table-responsive .cases-table th,
+.table-responsive .cases-table td {
+  text-align: left;
+  padding: 8px;
+  border-bottom: 1px solid var(--site_bg);
+  color: var(--grey);
+}
+.table-responsive .cases-table th.status-open,
+.table-responsive .cases-table td.status-open {
+  color: #1bc5bd;
+}
+.table-responsive .cases-table th.status-closed,
+.table-responsive .cases-table td.status-closed {
+  color: #f64e60;
+}
+.table-responsive .cases-table thead th {
+  background-color: var(--site_bg);
+  color: var(--black);
+}
+
+.paging {
+  margin-top: 30px;
+  display: flex;
+  flex-direction: row-reverse;
+}
+.paging ul.pagination {
+  gap: 5px;
+}
+.paging ul.pagination li.page-item span.page-link {
+  border: none;
+  box-shadow: none;
+  background: #922A8E !important;
+  color: #fff;
+}
+.paging ul.pagination li.page-item .page-link {
+  color: var(--grey);
+  background: rgba(150, 149, 153, 0.24);
+  border-radius: 12px;
+  padding: 5px 15px 7px;
+}
+.paging ul.pagination li.page-item .page-link:hover {
+  color: #969599 !important;
+  background: rgba(150, 149, 153, 0.5);
+}
+.paging ul.pagination li.page-item.active .page-link {
+  color: #fff;
+}
+
+.rtl ol.breadcrumb li:before {
+  float: right !important;
+  padding-left: var(--bs-breadcrumb-item-padding-x);
+}
+
+.login {
+  display: flex;
+  flex-direction: row;
+  display: flex;
+  flex-direction: row;
+  height: 100vh;
+}
+@media (max-width: 992px) {
+  .login {
+    flex-direction: column;
+  }
+}
+.login .login-section {
+  width: 33.333%;
+  background-color: var(--primary);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+@media (max-width: 992px) {
+  .login .login-section {
+    width: 100%;
+    padding: 70px 20px;
+  }
+}
+.login .login-section .lang-switch {
+  position: fixed;
+  top: 5%;
+  inset-inline-end: 5%;
+  padding: 10px 20px;
+  cursor: pointer;
+  border: 1px solid var(--white-half);
+  z-index: 99;
+  border-radius: 5px;
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--white);
+  font-size: 20px;
+}
+@media (max-width: 992px) {
+  .login .login-section .lang-switch {
+    background: var(--secondary);
+    top: 60px;
+    position: absolute;
+    padding: 5px 15px 10px;
+    border-radius: 30px;
+  }
+}
+.login .login-section .login-contents {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  max-width: 460px;
+  border-radius: 12px;
+  background: var(--site_bg);
+  box-shadow: var(--box-shadow);
+  gap: 20px;
+  padding: 36px;
+}
+.login .login-section .login-contents ul {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  gap: 5px;
+  padding: 0;
+}
+.login .login-section .login-contents ul li {
+  flex-grow: 1;
+}
+.login .login-section .login-contents ul li button {
+  width: 100%;
+  text-align: center;
+  font-family: "DIN Next LT W23";
+  font-size: 18px;
+  line-height: 150%;
+  color: var(--grey);
+  box-shadow: none;
+  outline: none;
+  border: none;
+  border-bottom: 4px solid var(--light-grey);
+}
+.login .login-section .login-contents ul li button.active {
+  color: var(--primary);
+  border: none;
+  background: transparent;
+  border-bottom: 4px solid var(--primary);
+}
+.login .login-section .login-contents .frm-title {
+  font-family: "DIN Next LT W23";
+  font-size: 30px;
+  line-height: 150%;
+  color: var(--black);
+  text-align: center;
+}
+.login .login-section .login-contents .tab-content {
+  width: 100%;
+}
+.login .login-section .login-contents .tab-content .form-control {
+  border-radius: 12px;
+  border: 1px solid var(--light-grey);
+  background: var(--white);
+  width: 100%;
+  height: 50px;
+  padding: 15px 20px;
+  font-size: 18px;
+}
+.login .login-section .login-contents .tab-content button.btn-frm-submit {
+  border-radius: 12px;
+  background: var(--primary);
+  width: 100%;
+  padding: 15px;
+  margin: 40px 0px 15px;
+  color: var(--white);
+}
+.login .branding-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+  background-color: var(--white);
+  position: relative;
+  background: url("../images/login-vector.svg") no-repeat;
+  background-size: cover;
+}
+@media (max-width: 992px) {
+  .login .branding-section {
+    align-items: start;
+    flex-direction: column;
+    padding: 70px 20px;
+    width: auto;
+  }
+}
+.login .branding-section .logo {
+  position: absolute;
+  top: 5%;
+  inset-inline-start: 5%;
+}
+@media (max-width: 992px) {
+  .login .branding-section .logo {
+    position: relative;
+    top: -40px;
+  }
+}
+.login .branding-section .branding-info {
+  width: 100%;
+  max-width: 460px;
+}
+.login .branding-section .branding-info span {
+  font-family: "DIN Next LT W23";
+  font-size: 18px;
+  line-height: 150%;
+  color: var(--primary);
+}
+.login .branding-section .branding-info h1 {
+  font-family: "DIN Next LT W23 Medium";
+  font-size: 48px;
+  line-height: 120%;
+  color: var(--black);
+  margin-bottom: 20px;
+}
+@media (max-width: 992px) {
+  .login .branding-section .branding-info h1 {
+    font-size: 38px;
+  }
+}
+.login .branding-section .branding-info p {
+  font-family: "DIN Next LT W23";
+  font-size: 19;
+  line-height: 150%;
+  color: var(--grey);
+}
+.login .branding-section:after {
+  content: "";
+  background: var(--primary);
+  width: 4px;
+  height: 100%;
+  inset-inline-end: 0;
+  position: absolute;
+}
+@media (max-width: 992px) {
+  .login .branding-section:after {
+    display: none;
+  }
 }
 
 section.frist-section {
@@ -845,220 +1095,209 @@ section.frist-section .services-sammary ul li a:hover p {
   opacity: 1;
 }
 
-.table-responsive {
-  overflow-x: auto;
-}
-.table-responsive .cases-table {
-  width: 100%;
-  border-collapse: collapse;
-}
-.table-responsive .cases-table tr:nth-child(even) {
-  background-color: #f9f9f9;
-}
-.table-responsive .cases-table tr:hover {
-  background-color: #f2f2f2;
-}
-.table-responsive .cases-table th,
-.table-responsive .cases-table td {
-  text-align: left;
-  padding: 8px;
-  border-bottom: 1px solid var(--site_bg);
+.breadcrumb a {
   color: var(--grey);
-}
-.table-responsive .cases-table th.status-open,
-.table-responsive .cases-table td.status-open {
-  color: #1BC5BD;
-}
-.table-responsive .cases-table th.status-closed,
-.table-responsive .cases-table td.status-closed {
-  color: #F64E60;
-}
-.table-responsive .cases-table thead th {
-  background-color: var(--site_bg);
-  color: var(--black);
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
 }
 
-.login {
-  display: flex;
-  flex-direction: row;
-  display: flex;
-  flex-direction: row;
-  height: 100vh;
-}
-@media (max-width: 992px) {
-  .login {
-    flex-direction: column;
-  }
-}
-.login .login-section {
-  width: 33.333%;
-  background-color: var(--primary);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-@media (max-width: 992px) {
-  .login .login-section {
-    width: 100%;
-    padding: 70px 20px;
-  }
-}
-.login .login-section .lang-switch {
-  position: fixed;
-  top: 5%;
-  inset-inline-end: 5%;
-  padding: 10px 20px;
-  cursor: pointer;
-  border: 1px solid var(--white-half);
-  z-index: 99;
-  border-radius: 5px;
-  background: rgba(255, 255, 255, 0.1);
-  color: var(--white);
-  font-size: 20px;
-}
-@media (max-width: 992px) {
-  .login .login-section .lang-switch {
-    background: var(--secondary);
-    top: 60px;
-    position: absolute;
-    padding: 5px 15px 10px;
-    border-radius: 30px;
-  }
-}
-.login .login-section .login-contents {
+.service-section .title-with-action {
   display: flex;
   align-items: center;
-  flex-direction: column;
-  width: 100%;
-  max-width: 460px;
-  border-radius: 12px;
-  background: var(--site_bg);
-  box-shadow: var(--box-shadow);
-  gap: 20px;
-  padding: 36px;
-}
-.login .login-section .login-contents ul {
-  display: flex;
   justify-content: space-between;
-  width: 100%;
-  gap: 5px;
-  padding: 0;
+  margin-bottom: 15px;
 }
-.login .login-section .login-contents ul li {
-  flex-grow: 1;
+.service-section .title-with-action h3 {
+  color: #121212;
+  font-family: DIN Next LT W23;
+  font-size: 36px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 50px;
+  display: flex;
+  align-items: center;
 }
-.login .login-section .login-contents ul li button {
-  width: 100%;
+.service-section .title-with-action h3 span {
+  color: #80808F;
   text-align: center;
-  font-family: "DIN Next LT W23";
+  font-family: DIN Next LT W23;
   font-size: 18px;
-  line-height: 150%;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  margin-inline-start: 10px;
+}
+.service-section .title-with-action .actionBtn {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  background: #E6E7EB;
+  padding: 10px;
+  border-radius: 30px;
+  gap: 10px;
+  box-shadow: 0px 10px 30px 0px rgba(82, 63, 105, 0.05);
+  padding-inline-start: 20px;
+}
+.service-section .title-with-action .actionBtn .add a {
+  display: block;
   color: var(--grey);
-  box-shadow: none;
-  outline: none;
-  border: none;
-  border-bottom: 4px solid var(--light-grey);
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
 }
-.login .login-section .login-contents ul li button.active {
-  color: var(--primary);
-  border: none;
-  background: transparent;
-  border-bottom: 4px solid var(--primary);
+.service-section .title-with-action .actionBtn .add a svg {
+  margin: 0 5px;
 }
-.login .login-section .login-contents .frm-title {
-  font-family: "DIN Next LT W23";
-  font-size: 30px;
+.service-section .title-with-action .actionBtn .add a:hover {
+  color: var(--secondary);
+}
+.service-section .title-with-action .actionBtn .add a:hover svg path {
+  fill: var(--secondary);
+}
+.service-section .title-with-action .actionBtn .current a {
+  border-radius: 100px;
+  background: #922a8e;
+  box-shadow: 0px 12px 24px 0px rgba(45, 42, 50, 0.06);
+  display: inline-flex;
+  padding: 8px 23px;
+  align-items: flex-start;
+  color: #fff;
   line-height: 150%;
+}
+.service-section .title-with-action .actionBtn .current a:hover {
   color: var(--black);
-  text-align: center;
+  background: var(--light-grey);
 }
-.login .login-section .login-contents .tab-content {
+.service-section .services-sammary ul {
+  display: flex;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  margin-left: -12.5px;
+  margin-right: -12.5px;
+}
+.service-section .services-sammary ul li {
+  flex: 0 0 25%;
+  max-width: 25%;
   width: 100%;
+  padding-left: 12.5px;
+  padding-right: 12.5px;
+  position: relative;
 }
-.login .login-section .login-contents .tab-content .form-control {
+.service-section .services-sammary ul li a {
+  display: block;
+  padding: 25px;
+  position: relative;
+  height: 100%;
+  background-clip: border-box;
+  border: 1px solid #EBEDF3;
   border-radius: 12px;
-  border: 1px solid var(--light-grey);
-  background: var(--white);
-  width: 100%;
-  height: 50px;
-  padding: 15px 20px;
+  box-shadow: 0px 0px 30px 0px rgba(82, 63, 105, 0.05);
+  transition: all 0.3s ease-in-out;
+  position: relative;
+  overflow: hidden;
+  background-color: #fff;
+  box-shadow: var(--box-shadow);
+}
+.service-section .services-sammary ul li a:after {
+  content: "";
+  position: absolute;
+  background: url("../images/service-vetor-bg.svg") no-repeat;
+  background-position: right;
+  width: 150px;
+  height: 140px;
+  top: -5px;
+  right: -5px;
+  opacity: 0.5 !important;
+  transition: all 0.1s ease-in-out;
+}
+.rtl .service-section .services-sammary ul li a:after {
+  left: -5px;
+  right: initial;
+}
+.rtl .service-section .services-sammary ul li a {
+  background-position: left;
+}
+.service-section .services-sammary ul li a div {
+  display: flex;
+  align-items: center;
+}
+.service-section .services-sammary ul li a div svg {
+  width: 28px;
+  height: 28px;
+}
+.service-section .services-sammary ul li a div span {
+  color: #121212;
+  font-family: DIN Next LT W23;
+  font-size: 26px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  margin-inline-start: 10px;
+}
+.service-section .services-sammary ul li a p {
+  color: #80808F;
+  font-family: DIN Next LT W23;
   font-size: 18px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
 }
-.login .login-section .login-contents .tab-content button.btn-frm-submit {
-  border-radius: 12px;
-  background: var(--primary);
-  width: 100%;
-  padding: 15px;
-  margin: 40px 0px 15px;
+.service-section .services-sammary ul li a:hover {
+  background: #0070B9;
+}
+.service-section .services-sammary ul li a:hover svg path {
+  fill: var(--white);
+}
+.service-section .services-sammary ul li a:hover span {
   color: var(--white);
 }
-.login .branding-section {
+.service-section .services-sammary ul li a:hover p {
+  color: var(--white-half);
+}
+.service-section .services-sammary ul li a:hover:after {
+  opacity: 0.05 !important;
+}
+.service-section .cases-box {
+  margin-top: 60px;
+}
+.service-section .cases-box .section-title-with-action {
   display: flex;
-  justify-content: center;
   align-items: center;
-  flex: 1;
-  background-color: var(--white);
-  position: relative;
-  background: url("../images/login-vector.svg") no-repeat;
-  background-size: cover;
+  justify-content: space-between;
+  margin-bottom: 15px;
 }
-@media (max-width: 992px) {
-  .login .branding-section {
-    align-items: start;
-    flex-direction: column;
-    padding: 70px 20px;
-    width: auto;
-  }
+.service-section .cases-box .section-title-with-action h3 {
+  color: #121212;
+  font-family: DIN Next LT W23;
+  font-size: 28px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 50px;
 }
-.login .branding-section .logo {
-  position: absolute;
-  top: 5%;
-  inset-inline-start: 5%;
-}
-@media (max-width: 992px) {
-  .login .branding-section .logo {
-    position: relative;
-    top: -40px;
-  }
-}
-.login .branding-section .branding-info {
-  width: 100%;
-  max-width: 460px;
-}
-.login .branding-section .branding-info span {
-  font-family: "DIN Next LT W23";
-  font-size: 18px;
+.service-section .cases-box .section-title-with-action .tool-action a {
+  border-radius: 100px;
+  background: #922a8e;
+  box-shadow: 0px 12px 24px 0px rgba(45, 42, 50, 0.06);
+  display: inline-flex;
+  padding: 8px 23px;
+  align-items: flex-start;
+  color: #fff;
   line-height: 150%;
-  color: var(--primary);
+  margin-inline-end: 7px;
 }
-.login .branding-section .branding-info h1 {
-  font-family: "DIN Next LT W23 Medium";
-  font-size: 48px;
-  line-height: 120%;
+.service-section .cases-box .section-title-with-action .tool-action a svg {
+  margin-inline-end: 10px;
+}
+.service-section .cases-box .section-title-with-action .tool-action a:hover {
   color: var(--black);
-  margin-bottom: 20px;
+  background: var(--light-grey);
 }
-@media (max-width: 992px) {
-  .login .branding-section .branding-info h1 {
-    font-size: 38px;
-  }
-}
-.login .branding-section .branding-info p {
-  font-family: "DIN Next LT W23";
-  font-size: 19;
-  line-height: 150%;
-  color: var(--grey);
-}
-.login .branding-section:after {
-  content: "";
-  background: var(--primary);
-  width: 4px;
-  height: 100%;
-  inset-inline-end: 0;
-  position: absolute;
-}
-@media (max-width: 992px) {
-  .login .branding-section:after {
-    display: none;
-  }
+.service-section .cases-box .open-case-tbl {
+  background: #fff;
+  padding: 30px;
+  border-radius: 12px;
 }/*# sourceMappingURL=styles.css.map */

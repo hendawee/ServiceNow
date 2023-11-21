@@ -75,36 +75,43 @@ body {
   background-color: var(--white);
   line-height: 150%;
 
+  #page-content-wrapper {
+    padding: 40px;
+    background: var(--site_bg);
+    transition: all 0.25s ease-out;
+    @media (min-width: $xxs) {
+      min-width: 0;
+      width: 100%;
+      padding-inline-start: 320px;
+      border-top-left-radius: 60px;
+    }
+  }  
+  &.rtl {
+    #page-content-wrapper {
+      @media (min-width: $xxs) {
+        border-top-right-radius: 60px;
+        border-top-left-radius: initial;
+      }
+     
+    }
+  }
+
   &.sb-sidenav-toggled {
     #sidebar-wrapper {
       @media (min-width: $xxs) {
-        margin-left: -350px;
+        margin-inline-start: -320px;
       }
     }
-    &.rtl {
-      #sidebar-wrapper {
-        @media (min-width: $xxs) {
-          margin-left: 0;
-          margin-right: -350px;
-        }
+
+    #page-content-wrapper {
+      @media (min-width: $xxs) {
+        padding-inline-start: 40px;
       }
     }
   }
 }
-#page-content-wrapper {
-  padding: 48px;
-  background: var(--site_bg);
-  border-top-left-radius: 60px;
-  .rtl & {
-    border-top-right-radius: 60px;
-    border-top-left-radius: initial;
-  } 
 
-  @media (min-width: $xxs) {
-    min-width: 0;
-    width: 100%;
-  }
-}  
+
 
 #wrapper {
   overflow: hidden;

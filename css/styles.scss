@@ -4,8 +4,14 @@
 @import 'mixin';
 @import 'header';
 @import 'sidebar';
-@import 'sections';
 @import 'footer'; 
+
+
+//components
+@import 'components';
+
 //pages
 @import 'login';
+@import 'sections'; 
+@import 'service';
  

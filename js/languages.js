@@ -46,29 +46,36 @@ function translatePageTo(language) {
     }
   });
 }
+
 var body = document.body;
-// Function to toggle language
-function toggleLanguage() {
-  if (body.getAttribute("lang") === "en") {
-    setLanguage("ar");
-    translatePageTo("ar");
+
+// Function to toggle or set language
+function toggleLanguage(lang) {
+  // If a specific language is passed, use it
+  if (lang) {
+    setLanguage(lang);
+    translatePageTo(lang);
   } else {
-    setLanguage("en");
-    translatePageTo("en");
+    // Otherwise, toggle based on current setting
+    var currentLang = body.getAttribute("lang") || 'en';
+    var newLang = currentLang === 'en' ? 'ar' : 'en';
+    setLanguage(newLang);
+    translatePageTo(newLang);
   }
 }
+
 // Function to set language
 function setLanguage(lang) {
   if (lang === "ar") {
     body.classList.remove("ltr");
     body.classList.add("rtl");
+    body.setAttribute("lang", "ar");
     localStorage.setItem("lang", "ar");
-    body.lang = "ar";
   } else {
     body.classList.remove("rtl");
     body.classList.add("ltr");
+    body.setAttribute("lang", "en");
     localStorage.setItem("lang", "en");
-    body.lang = "en";
   }
 }
 
