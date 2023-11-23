@@ -13,7 +13,7 @@ header.header {
       $flex-direction: row
     );
     padding: 14px 48px;
-    @media (max-width: $lg) {
+    @media (max-width: $md) {
       flex-direction: column;
     }
     .logo-wrap {
@@ -25,7 +25,7 @@ header.header {
         $flex-direction: row,
         $flex: 0 0 15%
       );
-      @media (max-width: $lg) {
+      @media (max-width: $md) {
         width: 100%;
         }
       .logo {
@@ -52,6 +52,9 @@ header.header {
       margin-inline-end: auto;
       margin-inline-start: 10%;
       @media (max-width: $lg) {
+        width: 40%;
+        }
+      @media (max-width: $md) {
         width: 100%;
         margin: 20px 0;
         display: none;
@@ -87,11 +90,11 @@ header.header {
     }
     nav.navbar {
       padding: 0;
-      @media (max-width: $lg) {
+      @media (max-width: $md) {
         width: 100%;
         }
       .navbar-toggler{
-        @media (max-width: $lg) {
+        @media (max-width: $md) {
           position: fixed;
           top: 20px;
           padding: 5px 7px;
@@ -104,7 +107,7 @@ header.header {
           box-shadow: none !important;
           }
           .rtl &{
-            @media (max-width: $lg) {
+            @media (max-width: $md) {
               left: auto;
               right: 50%;
               }
@@ -118,10 +121,15 @@ header.header {
           $align-items: center,
           $flex-direction: row
         );
-        gap: 10px;
+        gap: 10px; 
+        @media (max-width: $md) {
+          justify-content: center;
+          gap: 20px;
+          }
+        
         .nav-item {
           position: relative;
-          @media (max-width: $lg) {
+          @media (max-width: $md) {
             position: static;
             }
           &.language,
@@ -140,8 +148,13 @@ header.header {
               border-radius: 50%;
             }
             .dropdown-menu {
-              @media (max-width: $lg) {
-             position: absolute;
+              @media (max-width: $md) {
+                  position: absolute;
+                  left: 0;
+                  right: 0;
+                  width: 60%;
+                  margin: auto;
+                  top: 100%;
                 }
               .dropdown-item {
                 display: block;
