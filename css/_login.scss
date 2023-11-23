@@ -1,7 +1,7 @@
 .login {
   display: flex;
   flex-direction: row;
-   @include flex-box ($display: flex,$flex-direction: row) ;
+  @include flex-box($display: flex, $flex-direction: row);
   height: 100vh;
   @media (max-width: $lg) {
     flex-direction: column;
@@ -9,7 +9,11 @@
   .login-section {
     width: 33.333%;
     background-color: var(--primary);
-    @include flex-box ($display: flex,$justify-content: center,$align-items: center) ;
+    @include flex-box(
+      $display: flex,
+      $justify-content: center,
+      $align-items: center
+    );
     @media (max-width: $lg) {
       width: 100%;
       padding: 70px 20px;
@@ -35,7 +39,11 @@
       }
     }
     .login-contents {
-      @include flex-box ($display: flex,$align-items: center,$flex-direction:column) ;
+      @include flex-box(
+        $display: flex,
+        $align-items: center,
+        $flex-direction: column
+      );
       width: 100%;
       max-width: 460px;
       border-radius: 12px;
@@ -44,7 +52,7 @@
       gap: 20px;
       padding: 36px;
       ul {
-        @include flex-box ($display: flex,$justify-content: space-between) ;
+        @include flex-box($display: flex, $justify-content: space-between);
         width: 100%;
         gap: 5px;
         padding: 0;
@@ -94,7 +102,11 @@
     }
   }
   .branding-section {
-    @include flex-box ($display: flex,$justify-content: center, $align-items: center) ;
+    @include flex-box(
+      $display: flex,
+      $justify-content: center,
+      $align-items: center
+    );
     flex: 1;
     background-color: var(--white);
     position: relative;
@@ -141,7 +153,7 @@
       inset-inline-end: 0;
       position: absolute;
       @media (max-width: $lg) {
-        display: none;   
+        display: none;
       }
     }
   }

@@ -7,11 +7,14 @@
   --grey: #88898a;
   --light-grey: #ccc;
   --white: #fff;
-  --black: #121212;  
+  --black: #121212;
   --black-half: rgba(0, 0, 0, 0.5);
   --white-half: rgba(255, 255, 255, 0.5);
   --box-shadow: 0px 10px 30px 0px rgba(82, 63, 105, 0.05);
   --border: #f1f1f4;
+  --green: #1bc5bd;
+  --red: #f64e60;
+  --border-radius:12px;
 }
 
 // Site Bases
@@ -28,7 +31,7 @@ $font-medium: "DIN Next LT W23 Medium";
 
 a {
   text-decoration: none;
-  transition: 0.3s all ease; 
+  transition: 0.3s all ease;
 }
 
 ::-webkit-scrollbar {
@@ -39,7 +42,7 @@ a {
 /* Track */
 
 ::-webkit-scrollbar-track {
-  border-radius: 3px; 
+  border-radius: 3px;
   background-color: var(--border);
 }
 
@@ -87,15 +90,14 @@ body {
     }
     @media (max-width: $lg) {
       padding-inline-start: 60px;
-      }
-  }  
+    }
+  }
   &.rtl {
     #page-content-wrapper {
       @media (min-width: $xxs) {
         border-top-right-radius: 60px;
         border-top-left-radius: initial;
       }
-     
     }
   }
 
@@ -112,32 +114,27 @@ body {
       }
       @media (max-width: $lg) {
         padding-inline-start: 20px;
-        padding-inline-end: 20px; 
+        padding-inline-end: 20px;
         overflow: auto;
-        }
+      }
     }
   }
 }
-
-
 
 #wrapper {
   height: 100vh;
   overflow: auto;
   margin-top: 88px;
-
 }
 
 /* LTR specific styles */
 .ltr {
   direction: ltr;
-  text-align: left; 
+  text-align: left;
 }
-
 
 /* RTL specific styles */
 .rtl {
   direction: rtl;
   text-align: right;
 }
-

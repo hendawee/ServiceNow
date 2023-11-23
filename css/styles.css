@@ -53,6 +53,9 @@
   --white-half: rgba(255, 255, 255, 0.5);
   --box-shadow: 0px 10px 30px 0px rgba(82, 63, 105, 0.05);
   --border: #f1f1f4;
+  --green: #1bc5bd;
+  --red: #f64e60;
+  --border-radius:12px;
 }
 
 a {
@@ -277,6 +280,12 @@ header.header .container-fluid nav.navbar {
     width: fit-content;
     margin: auto;
     box-shadow: none !important;
+  }
+}
+@media (max-width: 992px) {
+  .rtl header.header .container-fluid nav.navbar .navbar-toggler {
+    left: auto;
+    right: 50%;
   }
 }
 header.header .container-fluid nav.navbar .navbar-nav {
@@ -559,18 +568,17 @@ header.header .container-fluid nav.navbar .navbar-nav .nav-item.user-panel .drop
 }
 .table-responsive .cases-table th,
 .table-responsive .cases-table td {
-  text-align: left;
   padding: 8px;
   border-bottom: 1px solid var(--site_bg);
   color: var(--grey);
 }
 .table-responsive .cases-table th.status-open,
 .table-responsive .cases-table td.status-open {
-  color: #1bc5bd;
+  color: var(--green);
 }
 .table-responsive .cases-table th.status-closed,
 .table-responsive .cases-table td.status-closed {
-  color: #f64e60;
+  color: var(--red);
 }
 .table-responsive .cases-table thead th {
   background-color: var(--site_bg);
@@ -588,7 +596,7 @@ header.header .container-fluid nav.navbar .navbar-nav .nav-item.user-panel .drop
 .paging ul.pagination li.page-item span.page-link {
   border: none;
   box-shadow: none;
-  background: #922A8E !important;
+  background: var(--secondary) !important;
   color: #fff;
 }
 .paging ul.pagination li.page-item .page-link {
@@ -598,11 +606,11 @@ header.header .container-fluid nav.navbar .navbar-nav .nav-item.user-panel .drop
   padding: 5px 15px 7px;
 }
 .paging ul.pagination li.page-item .page-link:hover {
-  color: #969599 !important;
+  color: var(--grey) !important;
   background: rgba(150, 149, 153, 0.5);
 }
 .paging ul.pagination li.page-item.active .page-link {
-  color: #fff;
+  color: var(--white);
 }
 
 .rtl ol.breadcrumb li:before {
@@ -795,39 +803,39 @@ header.header .container-fluid nav.navbar .navbar-nav .nav-item.user-panel .drop
   }
 }
 
-section.frist-section {
+section.first-section {
   align-items: center;
 }
 @media (max-width: 1400px) {
-  section.frist-section {
+  section.first-section {
     flex-direction: column;
   }
 }
 @media (max-width: 1400px) {
-  section.frist-section > div {
+  section.first-section > div {
     width: 100%;
   }
 }
 @media (max-width: 1200px) {
-  section.frist-section > div.col-9 .row {
+  section.first-section > div.col-9 .row {
     flex-direction: column;
   }
 }
 @media (max-width: 1200px) {
-  section.frist-section > div.col-9 .row > div {
+  section.first-section > div.col-9 .row > div {
     width: 100%;
   }
 }
-section.frist-section .welcome {
+section.first-section .welcome {
   position: relative;
   text-align: start;
 }
 @media (max-width: 992px) {
-  section.frist-section .welcome {
+  section.first-section .welcome {
     margin-bottom: 30px;
   }
 }
-section.frist-section .welcome > span {
+section.first-section .welcome > span {
   font-family: "DIN Next LT W23";
   font-size: 22px;
   line-height: 150%;
@@ -835,19 +843,19 @@ section.frist-section .welcome > span {
   display: block;
   margin-bottom: 10px;
 }
-section.frist-section .welcome h3 {
+section.first-section .welcome h3 {
   font-family: "DIN Next LT W23";
   font-size: 36px;
   line-height: 150%;
   color: var(--black);
 }
-section.frist-section .welcome h3 p {
+section.first-section .welcome h3 p {
   font-family: "DIN Next LT W23";
   font-size: 32px;
   line-height: 150%;
   color: var(--grey);
 }
-section.frist-section .services-sammary ul {
+section.first-section .services-sammary ul {
   padding: 0;
   margin: 0;
   list-style: none;
@@ -856,80 +864,74 @@ section.frist-section .services-sammary ul {
   align-items: center;
   flex-wrap: wrap;
 }
-section.frist-section .services-sammary ul li {
+section.first-section .services-sammary ul li {
   display: flex;
   flex-wrap: wrap;
   width: 48%;
   margin-bottom: 10px;
 }
-section.frist-section .services-sammary ul li a {
+section.first-section .services-sammary ul li a {
   display: flex;
-  padding: 24px 5px;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
-  background: #fff;
-  box-shadow: 0px 10px 30px 0px rgba(82, 63, 105, 0.05);
-  border-radius: 12px;
+  flex-direction: column;
+  background: var(--white);
+  box-shadow: var(--box-shadow);
+  border-radius: var(--border-radius);
+  padding: 24px 5px;
   transition: all 0.2s linear 0s;
   width: 100%;
   height: 100%;
 }
-section.frist-section .services-sammary ul li a svg {
+section.first-section .services-sammary ul li a svg {
   width: 24px;
   height: 24px;
   flex-shrink: 0;
 }
-section.frist-section .services-sammary ul li a span {
-  color: #121212;
-  font-family: DIN Next LT W23;
+section.first-section .services-sammary ul li a span {
+  font-family: "DIN Next LT W23";
   font-size: 22px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: normal;
+  line-height: 150%;
+  color: var(--black);
 }
-section.frist-section .services-sammary ul li a p {
-  margin: 10px 0px;
-  color: #80808f;
-  text-align: center;
-  font-family: DIN Next LT W23;
+section.first-section .services-sammary ul li a p {
+  font-family: "DIN Next LT W23";
   font-size: 18px;
-  font-style: normal;
-  font-weight: 500;
-  line-height: normal;
+  line-height: 150%;
+  color: var(--grey);
+  margin: 10px 0px;
+  text-align: center;
 }
-section.frist-section .services-sammary ul li a:hover {
+section.first-section .services-sammary ul li a:hover {
   background: var(--primary);
 }
-section.frist-section .services-sammary ul li a:hover svg path {
+section.first-section .services-sammary ul li a:hover svg path {
   fill: var(--white);
 }
-section.frist-section .services-sammary ul li a:hover span {
+section.first-section .services-sammary ul li a:hover span {
   color: var(--white);
 }
-section.frist-section .services-sammary ul li a:hover p {
+section.first-section .services-sammary ul li a:hover p {
   color: var(--white-half);
 }
 
 .favorite-box,
 .quick-links-box {
-  border-radius: 12px;
-  background: #fff;
-  box-shadow: 0px 10px 30px 0px rgba(82, 63, 105, 0.05);
+  border-radius: var(--border-radius);
+  background: var(--white);
+  box-shadow: var(--box-shadow);
   display: flex;
-  padding: 20px 24px;
-  flex-direction: column;
   align-items: flex-start;
+  flex-direction: column;
+  padding: 20px 24px;
   gap: 25px;
 }
 .favorite-box .commonTitle,
 .quick-links-box .commonTitle {
-  color: #121212;
-  font-family: DIN Next LT W23;
+  font-family: "DIN Next LT W23";
   font-size: 22px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: normal;
+  line-height: 150%;
+  color: var(--black);
 }
 .favorite-box ul,
 .quick-links-box ul {
@@ -949,17 +951,16 @@ section.frist-section .services-sammary ul li a:hover p {
 .favorite-box ul li a,
 .quick-links-box ul li a {
   border-radius: 12px;
-  background: #f2f3f7;
-  display: flex;
+  background: var(--site_bg);
   padding: 15px 18px;
+  display: flex;
   align-items: center;
   gap: 10px;
   color: var(--grey);
-  font-family: DIN Next LT W23;
+  font-family: "DIN Next LT W23";
   font-size: 16px;
-  font-style: normal;
-  font-weight: 500;
-  line-height: normal;
+  line-height: 150%;
+  color: var(--grey);
 }
 .favorite-box ul li a:hover,
 .quick-links-box ul li a:hover {
@@ -976,8 +977,8 @@ section.frist-section .services-sammary ul li a:hover p {
 }
 .second-section .title-with-action {
   display: flex;
-  align-items: center;
   justify-content: space-between;
+  align-items: center;
   margin-bottom: 15px;
 }
 @media (max-width: 1200px) {
@@ -987,30 +988,27 @@ section.frist-section .services-sammary ul li a:hover p {
   }
 }
 .second-section .title-with-action h3 {
-  color: #121212;
-  font-family: DIN Next LT W23;
-  font-size: 28px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: 50px;
+  font-family: "DIN Next LT W23";
+  font-size: 16px;
+  line-height: 150%;
+  color: var(--black);
 }
 .second-section .title-with-action .actionBtn {
   display: flex;
-  align-items: center;
   justify-content: space-between;
-  background: #fff;
+  align-items: center;
+  background: var(--white);
   padding: 10px;
   border-radius: 30px;
   gap: 20px;
-  box-shadow: 0px 10px 30px 0px rgba(82, 63, 105, 0.05);
+  box-shadow: var(--box-shadow);
 }
 .second-section .title-with-action .actionBtn .add a {
-  display: block;
-  color: rgba(18, 18, 18, 0.5);
+  font-family: "DIN Next LT W23";
   font-size: 14px;
-  font-style: normal;
-  font-weight: 600;
-  line-height: normal;
+  line-height: 150%;
+  color: var(--grey);
+  display: block;
 }
 .second-section .title-with-action .actionBtn .add a svg {
   margin: 0 5px;
@@ -1023,23 +1021,25 @@ section.frist-section .services-sammary ul li a:hover p {
 }
 .second-section .title-with-action .actionBtn .current a {
   border-radius: 100px;
-  background: #922a8e;
-  box-shadow: 0px 12px 24px 0px rgba(45, 42, 50, 0.06);
+  background: var(--secondary);
+  box-shadow: var(--box-shadow);
   display: inline-flex;
-  padding: 8px 23px;
   align-items: flex-start;
-  color: #fff;
+  padding: 8px 23px;
+  font-family: "DIN Next LT W23";
+  font-size: 16px;
   line-height: 150%;
+  color: var(--white);
 }
 .second-section .title-with-action .actionBtn .current a:hover {
-  color: var(--black);
+  color: var(--grey);
   background: var(--light-grey);
 }
 .second-section .services-box .accordion .accordion-item {
   margin-bottom: 10px;
-  border-radius: 12px;
+  border-radius: var(--border-radius);
   border: 1px solid rgba(122, 122, 122, 0.2);
-  background: #fff;
+  background: var(--white);
 }
 .second-section .services-box .accordion .accordion-item .accordion-header .accordion-button {
   background: none;
@@ -1059,39 +1059,37 @@ section.frist-section .services-sammary ul li a:hover p {
   }
 }
 .second-section .services-box .accordion .accordion-item .accordion-header .accordion-button > span {
-  color: #121212;
-  font-family: DIN Next LT W23;
+  font-family: "DIN Next LT W23";
   font-size: 22px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: normal;
+  line-height: 150%;
+  color: var(--black);
 }
 .second-section .services-box .accordion .accordion-item .accordion-header .accordion-button .serv-summary {
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
   gap: 2em;
 }
 @media (max-width: 992px) {
   .second-section .services-box .accordion .accordion-item .accordion-header .accordion-button .serv-summary {
-    flex-direction: column;
-    width: 100%;
     justify-content: start;
     align-items: start;
+    flex-direction: column;
+    width: 100%;
     margin-top: 30px;
     gap: 0;
   }
 }
 .second-section .services-box .accordion .accordion-item .accordion-header .accordion-button .serv-summary a {
   display: flex;
-  align-items: center;
   justify-content: space-between;
+  align-items: center;
   gap: 0.3rem;
 }
 @media (max-width: 992px) {
   .second-section .services-box .accordion .accordion-item .accordion-header .accordion-button .serv-summary a {
     width: 100%;
-    border-bottom: 1px dashed #ccc;
+    border-bottom: 1px dashed var(--light-grey);
     padding-bottom: 10px;
     margin-bottom: 10px;
     gap: 0;
@@ -1102,8 +1100,8 @@ section.frist-section .services-sammary ul li a:hover p {
 }
 .second-section .services-box .accordion .accordion-item .accordion-header .accordion-button .serv-summary a div {
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
   gap: 5px;
 }
 .second-section .services-box .accordion .accordion-item .accordion-header .accordion-button .serv-summary a div svg {
@@ -1111,28 +1109,24 @@ section.frist-section .services-sammary ul li a:hover p {
   height: 24px;
 }
 .second-section .services-box .accordion .accordion-item .accordion-header .accordion-button .serv-summary a div svg path {
-  fill: rgba(0, 0, 0, 0.5);
+  fill: var(--black-half);
 }
 .second-section .services-box .accordion .accordion-item .accordion-header .accordion-button .serv-summary a div span {
-  color: #121212;
-  font-family: DIN Next LT W23;
+  font-family: "DIN Next LT W23";
   font-size: 18px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: normal;
+  line-height: 150%;
+  color: var(--black);
 }
 .second-section .services-box .accordion .accordion-item .accordion-header .accordion-button .serv-summary a p {
-  margin: 0;
-  color: #80808f;
-  font-family: DIN Next LT W23;
+  font-family: "DIN Next LT W23";
   font-size: 16px;
-  font-style: normal;
-  font-weight: 500;
-  line-height: normal;
+  line-height: 150%;
+  color: var(--grey);
+  margin: 0;
 }
 @media (max-width: 992px) {
   .second-section .services-box .accordion .accordion-item .accordion-header .accordion-button .serv-summary a p {
-    color: #121212;
+    color: var(--black);
   }
 }
 .second-section .services-box .accordion .accordion-item .accordion-header .accordion-button:focus {
@@ -1168,34 +1162,32 @@ section.frist-section .services-sammary ul li a:hover p {
 }
 .second-section .services-box .accordion .accordion-item .accordion-body .section-title-with-action {
   display: flex;
-  align-items: center;
   justify-content: space-between;
+  align-items: center;
   margin-bottom: 15px;
 }
 @media (max-width: 992px) {
   .second-section .services-box .accordion .accordion-item .accordion-body .section-title-with-action {
-    flex-direction: column;
     align-items: start;
+    flex-direction: column;
   }
 }
 .second-section .services-box .accordion .accordion-item .accordion-body .section-title-with-action h3 {
-  color: #212121;
-  font-family: DIN Next LT W23;
+  font-family: "DIN Next LT W23";
   font-size: 20px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: 21px; /* 105% */
+  line-height: 21px;
+  color: var(--black);
 }
 .second-section .services-box .accordion .accordion-item .accordion-body .section-title-with-action .tool-action {
   display: flex;
-  align-items: center;
   justify-content: space-between;
+  align-items: center;
   gap: 5px;
 }
 .second-section .services-box .accordion .accordion-item .accordion-body .section-title-with-action .tool-action .add a {
   border-radius: 22px;
-  background: #922a8e;
-  color: #fff;
+  background: var(--secondary);
+  color: var(--white);
   display: block;
   padding-inline-start: 0;
   padding-inline-end: 25px;
@@ -1215,7 +1207,7 @@ section.frist-section .services-sammary ul li a:hover p {
 .second-section .services-box .accordion .accordion-item .accordion-body .section-title-with-action .tool-action .all a {
   border-radius: 22px;
   background: var(--primary);
-  color: #fff;
+  color: var(--white);
   display: block;
   padding: 7px 25px 8px;
   text-align: center;
@@ -1226,54 +1218,49 @@ section.frist-section .services-sammary ul li a:hover p {
 }
 
 .breadcrumb a {
-  color: var(--grey);
+  font-family: "DIN Next LT W23";
   font-size: 16px;
-  font-style: normal;
-  font-weight: 600;
-  line-height: normal;
+  line-height: 21px;
+  color: var(--grey);
 }
 
 .service-section .title-with-action {
   display: flex;
-  align-items: center;
   justify-content: space-between;
+  align-items: center;
   margin-bottom: 15px;
 }
 @media (max-width: 992px) {
   .service-section .title-with-action {
+    align-items: center;
     flex-direction: column;
-    align-items: start;
   }
 }
 .service-section .title-with-action h3 {
-  color: #121212;
-  font-family: DIN Next LT W23;
+  font-family: "DIN Next LT W23";
   font-size: 36px;
-  font-style: normal;
-  font-weight: 700;
   line-height: 50px;
+  color: var(--black);
   display: flex;
   align-items: center;
 }
 .service-section .title-with-action h3 span {
-  color: #80808F;
-  text-align: center;
-  font-family: DIN Next LT W23;
+  font-family: "DIN Next LT W23";
   font-size: 18px;
-  font-style: normal;
-  font-weight: 500;
-  line-height: normal;
+  line-height: 150%;
+  color: var(--grey);
+  text-align: center;
   margin-inline-start: 10px;
 }
 .service-section .title-with-action .actionBtn {
   display: flex;
-  align-items: center;
   justify-content: space-around;
-  background: #E6E7EB;
+  align-items: center;
+  background: var(--site_bg);
   padding: 10px;
   border-radius: 30px;
   gap: 10px;
-  box-shadow: 0px 10px 30px 0px rgba(82, 63, 105, 0.05);
+  box-shadow: var(--box-shadow);
   padding-inline-start: 20px;
 }
 @media (max-width: 992px) {
@@ -1283,11 +1270,10 @@ section.frist-section .services-sammary ul li a:hover p {
 }
 .service-section .title-with-action .actionBtn .add a {
   display: block;
-  color: var(--grey);
+  font-family: "DIN Next LT W23";
   font-size: 14px;
-  font-style: normal;
-  font-weight: 600;
-  line-height: normal;
+  line-height: 150%;
+  color: var(--grey);
 }
 .service-section .title-with-action .actionBtn .add a svg {
   margin: 0 5px;
@@ -1300,12 +1286,12 @@ section.frist-section .services-sammary ul li a:hover p {
 }
 .service-section .title-with-action .actionBtn .current a {
   border-radius: 100px;
-  background: #922a8e;
-  box-shadow: 0px 12px 24px 0px rgba(45, 42, 50, 0.06);
+  background: var(--secondary);
+  box-shadow: var(--box-shadow);
   display: inline-flex;
-  padding: 8px 23px;
   align-items: flex-start;
-  color: #fff;
+  padding: 8px 23px;
+  color: var(--white);
   line-height: 150%;
 }
 .service-section .title-with-action .actionBtn .current a:hover {
@@ -1344,14 +1330,12 @@ section.frist-section .services-sammary ul li a:hover p {
   padding: 25px;
   position: relative;
   height: 100%;
-  background-clip: border-box;
-  border: 1px solid #EBEDF3;
-  border-radius: 12px;
-  box-shadow: 0px 0px 30px 0px rgba(82, 63, 105, 0.05);
+  border: 1px solid var(--site_bg);
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
   transition: all 0.3s ease-in-out;
-  position: relative;
   overflow: hidden;
-  background-color: #fff;
+  background-color: var(--white);
   box-shadow: var(--box-shadow);
 }
 @media (max-width: 992px) {
@@ -1387,24 +1371,20 @@ section.frist-section .services-sammary ul li a:hover p {
   height: 28px;
 }
 .service-section .services-sammary ul li a div span {
-  color: #121212;
-  font-family: DIN Next LT W23;
+  font-family: "DIN Next LT W23";
   font-size: 26px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: normal;
+  line-height: 150%;
+  color: var(--black);
   margin-inline-start: 10px;
 }
 .service-section .services-sammary ul li a p {
-  color: #80808F;
-  font-family: DIN Next LT W23;
+  font-family: "DIN Next LT W23";
   font-size: 18px;
-  font-style: normal;
-  font-weight: 500;
-  line-height: normal;
+  line-height: 150%;
+  color: var(--grey);
 }
 .service-section .services-sammary ul li a:hover {
-  background: #0070B9;
+  background: var(--primary);
 }
 .service-section .services-sammary ul li a:hover svg path {
   fill: var(--white);
@@ -1423,32 +1403,30 @@ section.frist-section .services-sammary ul li a:hover p {
 }
 .service-section .cases-box .section-title-with-action {
   display: flex;
-  align-items: center;
   justify-content: space-between;
+  align-items: center;
   margin-bottom: 15px;
 }
 @media (max-width: 992px) {
   .service-section .cases-box .section-title-with-action {
-    flex-direction: column;
     align-items: start;
+    flex-direction: column;
   }
 }
 .service-section .cases-box .section-title-with-action h3 {
-  color: #121212;
-  font-family: DIN Next LT W23;
+  font-family: "DIN Next LT W23";
   font-size: 28px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: 50px;
+  line-height: 150%;
+  color: var(--black);
 }
 .service-section .cases-box .section-title-with-action .tool-action a {
   border-radius: 100px;
-  background: #922a8e;
-  box-shadow: 0px 12px 24px 0px rgba(45, 42, 50, 0.06);
+  background: var(--secondary);
+  box-shadow: var(--box-shadow);
   display: inline-flex;
-  padding: 8px 23px;
   align-items: flex-start;
-  color: #fff;
+  padding: 8px 23px;
+  color: var(--white);
   line-height: 150%;
   margin-inline-end: 7px;
 }
@@ -1460,7 +1438,7 @@ section.frist-section .services-sammary ul li a:hover p {
   background: var(--light-grey);
 }
 .service-section .cases-box .open-case-tbl {
-  background: #fff;
+  background: var(--white);
   padding: 30px;
-  border-radius: 12px;
+  border-radius: var(--border-radius);
 }/*# sourceMappingURL=styles.css.map */

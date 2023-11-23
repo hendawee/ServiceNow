@@ -2,20 +2,18 @@
   background: var(--white);
   width: 320px;
   height: 100vh;
-  // margin-left: 0px;
   margin-inline-start: 0px;
   transition: all 0.25s ease-out;
   padding: 50px 0;
   @media (min-width: $md) {
     position: fixed;
   }
-  
+
   .sidebar-nav {
     list-style: none;
     padding: 0;
     margin: 0;
     width: inherit;
-
 
     > li {
       a.list-group-item {
@@ -25,7 +23,7 @@
         }
         @include default-text($font-regular, 18px, 150%, var(--black));
         &.active {
-          background-color:var(--site_bg);
+          background-color: var(--site_bg);
           color: var(--secondary);
           &::before {
             content: "";
@@ -61,7 +59,7 @@
             @media (min-width: $md) {
               inset-inline-end: 10px;
               top: 31%;
-              .rtl &{
+              .rtl & {
                 transform: rotate(180deg);
               }
             }

@@ -6,7 +6,7 @@
   }    
 
 
-  @mixin flex-box ($display: null,$justify-content: null,$align-items: null,$flex-direction: null,$flex: null) {
+  @mixin flex-box ($display: null,$justify-content: null,$align-items: null,$flex-direction: null,$flex: null,$flex-wrap: null) {
     @if $display != null {
       display: $display;
     }
@@ -17,10 +17,13 @@
       align-items: $align-items;
     }
     @if $flex-direction != null {
-      flex-direction: $flex-direction;
+      flex-direction: $flex-direction; 
     }
     @if $flex != null {
       flex: $flex;
+    }
+    @if $flex-wrap != null {
+      flex-wrap: $flex-wrap;
     }
     
   }

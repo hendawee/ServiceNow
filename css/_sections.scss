@@ -1,32 +1,32 @@
-section.frist-section {
+// Section First Row
+section.first-section {
   align-items: center;
   @media (max-width: $xxl) {
-   flex-direction: column;
+    flex-direction: column;
   }
-  > div{
-    @media (max-width: $xxl) {
-      width: 100%;
-    } 
-    &.col-9{
-     .row{
-      @media (max-width: $xl) {
-        flex-direction: column;
-      } 
-      > div{
+  > div {
+    @media (max-width: $xxl) { 
+      width: 100%; 
+    }  
+    &.col-9 {
+      .row {
         @media (max-width: $xl) {
-          width: 100%;
-        } 
-      
-      }
-     }
+          flex-direction: column;
+        }
+        > div {
+          @media (max-width: $xl) {
+            width: 100%;
+          }
+        }
+      } 
     }
   }
   .welcome {
     position: relative;
     text-align: start;
-    @media (max-width: $lg) {
-    margin-bottom: 30px;
-      }
+    @media (max-width: $lg) { 
+      margin-bottom: 30px;
+    }
     > span {
       @include default-text($font-regular, 22px, 150%, var(--primary));
       display: block;
@@ -45,22 +45,28 @@ section.frist-section {
       padding: 0;
       margin: 0;
       list-style: none;
-      @include flex-box ($display: flex,$justify-content: space-between,$align-items: center) ;
+      @include flex-box(
+        $display: flex,
+        $justify-content: space-between,
+        $align-items: center
+      );
       flex-wrap: wrap;
-      li { 
+      li {
         display: flex;
         flex-wrap: wrap;
         width: 48%;
         margin-bottom: 10px;
         a {
-          display: flex;
+          @include flex-box(
+            $display: flex,
+            $flex-direction: column,
+            $justify-content: center,
+            $align-items: center
+          );
+          background: var(--white);
+          box-shadow: var(--box-shadow);
+          border-radius: var(--border-radius);
           padding: 24px 5px;
-          flex-direction: column;
-          justify-content: center;
-          align-items: center;
-          background: #fff;
-          box-shadow: 0px 10px 30px 0px rgba(82, 63, 105, 0.05);
-          border-radius: 12px;
           transition: all 0.2s linear 0s;
           width: 100%;
           height: 100%;
@@ -70,22 +76,12 @@ section.frist-section {
             flex-shrink: 0;
           }
           span {
-            color: #121212;
-            font-family: DIN Next LT W23;
-            font-size: 22px;
-            font-style: normal;
-            font-weight: 700;
-            line-height: normal;
+            @include default-text($font-regular, 22px, 150%, var(--black));
           }
           p {
+            @include default-text($font-regular, 18px, 150%, var(--grey));
             margin: 10px 0px;
-            color: #80808f;
             text-align: center;
-            font-family: DIN Next LT W23;
-            font-size: 18px;
-            font-style: normal;
-            font-weight: 500;
-            line-height: normal;
           }
           &:hover {
             background: var(--primary);
@@ -110,21 +106,18 @@ section.frist-section {
 
 .favorite-box,
 .quick-links-box {
-  border-radius: 12px;
-  background: #fff;
-  box-shadow: 0px 10px 30px 0px rgba(82, 63, 105, 0.05);
-  display: flex;
+  border-radius: var(--border-radius);
+  background: var(--white);
+  box-shadow: var(--box-shadow);
+  @include flex-box(
+    $display: flex,
+    $flex-direction: column,
+    $align-items: flex-start
+  );
   padding: 20px 24px;
-  flex-direction: column;
-  align-items: flex-start;
   gap: 25px;
   .commonTitle {
-    color: #121212;
-    font-family: DIN Next LT W23;
-    font-size: 22px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: normal;
+    @include default-text($font-regular, 22px, 150%, var(--black));
   }
   ul {
     list-style: none;
@@ -140,17 +133,12 @@ section.frist-section {
       margin-bottom: 10px;
       a {
         border-radius: 12px;
-        background: #f2f3f7;
-        display: flex;
+        background: var(--site_bg);
         padding: 15px 18px;
-        align-items: center;
+        @include flex-box($display: flex, $align-items: center);
         gap: 10px;
         color: var(--grey);
-        font-family: DIN Next LT W23;
-        font-size: 16px;
-        font-style: normal;
-        font-weight: 500;
-        line-height: normal;
+        @include default-text($font-regular, 16px, 150%, var(--grey));
         &:hover {
           color: var(--white);
           background: var(--primary);
@@ -168,40 +156,35 @@ section.frist-section {
 .second-section {
   margin-top: 48px;
   .title-with-action {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+    @include flex-box(
+      $display: flex,
+      $justify-content: space-between,
+      $align-items: center
+    );
     margin-bottom: 15px;
     @media (max-width: $xl) {
       flex-direction: column;
       align-items: flex-start;
     }
-    
+
     h3 {
-      color: #121212;
-      font-family: DIN Next LT W23;
-      font-size: 28px;
-      font-style: normal;
-      font-weight: 700;
-      line-height: 50px;
+      @include default-text($font-regular, 16px, 150%, var(--black));
     }
     .actionBtn {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      background: #fff;
+      @include flex-box(
+        $display: flex,
+        $justify-content: space-between,
+        $align-items: center
+      );
+      background: var(--white);
       padding: 10px;
       border-radius: 30px;
       gap: 20px;
-      box-shadow: 0px 10px 30px 0px rgba(82, 63, 105, 0.05);
+      box-shadow: var(--box-shadow);
       .add {
         a {
+          @include default-text($font-regular, 14px, 150%, var(--grey));
           display: block;
-          color: rgba(18, 18, 18, 0.5);
-          font-size: 14px;
-          font-style: normal;
-          font-weight: 600;
-          line-height: normal;
           svg {
             margin: 0 5px;
           }
@@ -218,15 +201,13 @@ section.frist-section {
       .current {
         a {
           border-radius: 100px;
-          background: #922a8e;
-          box-shadow: 0px 12px 24px 0px rgba(45, 42, 50, 0.06);
-          display: inline-flex;
+          background: var(--secondary);
+          box-shadow: var(--box-shadow);
+          @include flex-box($display: inline-flex, $align-items: flex-start);
           padding: 8px 23px;
-          align-items: flex-start;
-          color: #fff;
-          line-height: 150%;
+          @include default-text($font-regular, 16px, 150%, var(--white));
           &:hover {
-            color: var(--black);
+            color: var(--grey);
             background: var(--light-grey);
           }
         }
@@ -237,9 +218,9 @@ section.frist-section {
     .accordion {
       .accordion-item {
         margin-bottom: 10px;
-        border-radius: 12px;
+        border-radius: var(--border-radius);
         border: 1px solid rgba(122, 122, 122, 0.2);
-        background: #fff;
+        background: var(--white);
         .accordion-header {
           .accordion-button {
             background: none;
@@ -254,76 +235,74 @@ section.frist-section {
               flex-direction: column;
               justify-content: start;
               align-items: start;
-              }
+            }
             > span {
-              color: #121212;
-              font-family: DIN Next LT W23;
-              font-size: 22px;
-              font-style: normal;
-              font-weight: 700;
-              line-height: normal;
+              @include default-text($font-regular, 22px, 150%, var(--black));
             }
 
             .serv-summary {
-              display: flex;
-              align-items: center;
-              justify-content: center;
+              @include flex-box(
+                $display: flex,
+                $justify-content: center,
+                $align-items: center
+              );
               gap: 2em;
               @media (max-width: $lg) {
-                flex-direction: column;
+                @include flex-box(
+                  $flex-direction: column,
+                  $justify-content: start,
+                  $align-items: start
+                );
                 width: 100%;
-                justify-content: start;
-                align-items: start;
                 margin-top: 30px;
                 gap: 0;
-                }
+              }
               a {
-                display: flex;
-                align-items: center;
-                justify-content: space-between;
+                @include flex-box(
+                  $display: flex,
+                  $justify-content: space-between,
+                  $align-items: center
+                );
                 gap: 0.3rem;
                 @media (max-width: $lg) {
                   width: 100%;
-                  border-bottom: 1px dashed #ccc;
+                  border-bottom: 1px dashed var(--light-grey);
                   padding-bottom: 10px;
                   margin-bottom: 10px;
                   gap: 0;
-                  }
-                  &:last-child{
-                    border-bottom: 0;
-                  }
+                }
+                &:last-child {
+                  border-bottom: 0;
+                }
                 div {
-                  display: flex;
-                  align-items: center;
-                  justify-content: center;
+                  @include flex-box(
+                    $display: flex,
+                    $justify-content: center,
+                    $align-items: center
+                  );
                   gap: 5px;
                   svg {
                     width: 24px;
                     height: 24px;
                     path {
-                      fill: rgba(0, 0, 0, 0.5);
+                      fill: var(--black-half);
                     }
                   }
                   span {
-                    color: #121212;
-                    font-family: DIN Next LT W23;
-                    font-size: 18px;
-                    font-style: normal;
-                    font-weight: 700;
-                    line-height: normal;
+                    @include default-text(
+                      $font-regular,
+                      18px,
+                      150%,
+                      var(--black)
+                    );
                   }
                 }
                 p {
+                  @include default-text($font-regular, 16px, 150%, var(--grey));
                   margin: 0;
-                  color: #80808f;
-                  font-family: DIN Next LT W23;
-                  font-size: 16px;
-                  font-style: normal;
-                  font-weight: 500;
-                  line-height: normal;
                   @media (max-width: $lg) {
-                    color: #121212;
-                    }
+                    color: var(--black);
+                  }
                 }
               }
             }
@@ -345,7 +324,7 @@ section.frist-section {
               inset-inline-start: 14px;
               position: absolute;
               background-position: center center;
-              .rtl &{
+              .rtl & {
                 transform: rotate(180deg);
               }
             }
@@ -375,40 +354,38 @@ section.frist-section {
         }
         .accordion-body {
           .section-title-with-action {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
+            @include flex-box(
+              $display: flex,
+              $justify-content: space-between,
+              $align-items: center
+            );
             margin-bottom: 15px;
             @media (max-width: $lg) {
-              flex-direction: column;
-              align-items: start;
-              }
-          
+              @include flex-box($flex-direction: column, $align-items: start);
+            }
+
             h3 {
-              color: #212121;
-              font-family: DIN Next LT W23;
-              font-size: 20px;
-              font-style: normal;
-              font-weight: 700;
-              line-height: 21px; /* 105% */
+              @include default-text($font-regular, 20px, 21px, var(--black));
             }
             .tool-action {
-              display: flex;
-              align-items: center;
-              justify-content: space-between;
+              @include flex-box(
+                $display: flex,
+                $justify-content: space-between,
+                $align-items: center
+              );
               gap: 5px;
 
               .add {
                 a {
                   border-radius: 22px;
-                  background: #922a8e;
-                  color: #fff;
+                  background: var(--secondary);
+                  color: var(--white);
                   display: block;
                   padding-inline-start: 0;
                   padding-inline-end: 25px;
                   padding-top: 2px;
                   padding-bottom: 2px;
-                  
+
                   opacity: 0.8;
                   &:hover {
                     opacity: 1;
@@ -425,15 +402,15 @@ section.frist-section {
                 a {
                   border-radius: 22px;
                   background: var(--primary);
-                  color: #fff;
+                  color: var(--white);
                   display: block;
                   padding: 7px 25px 8px;
                   text-align: center;
                   opacity: 0.8;
-                  &:hover {
+                  &:hover { 
                     opacity: 1;
                   }
-                }
+                } 
               }
             }
           }
@@ -442,4 +419,3 @@ section.frist-section {
     }
   }
 }
-

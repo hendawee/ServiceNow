@@ -103,6 +103,12 @@ header.header {
           margin: auto;
           box-shadow: none !important;
           }
+          .rtl &{
+            @media (max-width: $lg) {
+              left: auto;
+              right: 50%;
+              }
+          }
       }
           
       .navbar-nav {
