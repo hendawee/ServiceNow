@@ -13,7 +13,11 @@ header.header {
       $flex-direction: row
     );
     padding: 14px 48px;
+    @media (max-width: $lg) {
+      flex-direction: column;
+    }
     .logo-wrap {
+
       @include flex-box(
         $display: flex,
         $justify-content: space-between,
@@ -21,6 +25,9 @@ header.header {
         $flex-direction: row,
         $flex: 0 0 15%
       );
+      @media (max-width: $lg) {
+        width: 100%;
+        }
       .logo {
         img {
           height: 45px;
@@ -44,6 +51,11 @@ header.header {
       width: 20%;
       margin-inline-end: auto;
       margin-inline-start: 10%;
+      @media (max-width: $lg) {
+        width: 100%;
+        margin: 20px 0;
+        display: none;
+        }
       form {
         position: relative;
         &:after {
@@ -75,6 +87,24 @@ header.header {
     }
     nav.navbar {
       padding: 0;
+      @media (max-width: $lg) {
+        width: 100%;
+        }
+      .navbar-toggler{
+        @media (max-width: $lg) {
+          position: fixed;
+          top: 20px;
+          padding: 5px 7px;
+          border: none;
+          right: auto;
+          left: 50%;
+          width: -moz-fit-content;
+          width: fit-content;
+          margin: auto;
+          box-shadow: none !important;
+          }
+      }
+          
       .navbar-nav {
         @include flex-box(
           $display: flex,
@@ -85,6 +115,9 @@ header.header {
         gap: 10px;
         .nav-item {
           position: relative;
+          @media (max-width: $lg) {
+            position: static;
+            }
           &.language,
           &.notification,
           &.user-panel {
@@ -101,6 +134,9 @@ header.header {
               border-radius: 50%;
             }
             .dropdown-menu {
+              @media (max-width: $lg) {
+             position: absolute;
+                }
               .dropdown-item {
                 display: block;
                 img {

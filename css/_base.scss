@@ -80,11 +80,14 @@ body {
     background: var(--site_bg);
     transition: all 0.25s ease-out;
     @media (min-width: $xxs) {
-      min-width: 0;
+      min-width: 100%;
       width: 100%;
-      padding-inline-start: 320px;
+      padding-inline-start: 360px;
       border-top-left-radius: 60px;
     }
+    @media (max-width: $lg) {
+      padding-inline-start: 60px;
+      }
   }  
   &.rtl {
     #page-content-wrapper {
@@ -107,6 +110,11 @@ body {
       @media (min-width: $xxs) {
         padding-inline-start: 40px;
       }
+      @media (max-width: $lg) {
+        padding-inline-start: 20px;
+        padding-inline-end: 20px; 
+        overflow: auto;
+        }
     }
   }
 }
@@ -114,8 +122,10 @@ body {
 
 
 #wrapper {
-  overflow: hidden;
+  height: 100vh;
+  overflow: auto;
   margin-top: 88px;
+
 }
 
 /* LTR specific styles */

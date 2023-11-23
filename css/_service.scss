@@ -11,6 +11,10 @@
         align-items: center;
         justify-content: space-between;
         margin-bottom: 15px;
+        @media (max-width: $lg) {
+          flex-direction: column;
+          align-items: start;
+          }
         h3 {
           color: #121212;
           font-family: DIN Next LT W23;
@@ -41,6 +45,9 @@
             gap: 10px;
             box-shadow: 0px 10px 30px 0px rgba(82, 63, 105, 0.05);
             padding-inline-start: 20px;
+            @media (max-width: $lg) {
+              margin: 20px 0;
+              }
           .add {
             a {
               display: block;
@@ -89,6 +96,9 @@
         list-style: none;
         margin-left: -12.5px;
         margin-right: -12.5px;
+        @media (max-width: $lg) {
+          flex-direction: column;
+          }
         li {
             flex: 0 0 25%;
             max-width: 25%;
@@ -96,6 +106,10 @@
             padding-left: 12.5px;
             padding-right: 12.5px;
             position: relative;
+            @media (max-width: $lg) {
+              flex: 0 0 100%;
+              max-width: 100%;
+              }
             a {
                 display: block;
                 padding: 25px;
@@ -110,6 +124,9 @@
                 overflow: hidden;
                 background-color: #fff;
                 box-shadow: var(--box-shadow);
+                @media (max-width: $lg) {
+                 margin-bottom: 20px;
+                  }
                 &:after{
                     content: "";
                     position: absolute;
@@ -184,7 +201,11 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
-        margin-bottom: 15px;
+        margin-bottom: 15px;        
+        @media (max-width: $lg) {
+          flex-direction: column;
+          align-items: start;
+          }
         h3 {
             color: #121212;
             font-family: DIN Next LT W23;

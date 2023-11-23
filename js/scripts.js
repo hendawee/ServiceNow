@@ -42,6 +42,22 @@ document.addEventListener("DOMContentLoaded", function () {
       this.classList.toggle("active");
     });
   });
+
+      // Select the navbar toggler button
+      var navbarToggler = document.querySelector('.navbar-toggler');
+
+      // Add click event listener
+      navbarToggler.addEventListener('click', function() {
+          // Select the search HTML
+          var searchWrap = document.querySelector('.search-wrap');
+  
+          // Toggle the display of the search bar
+          if (searchWrap.style.display === "none" || searchWrap.style.display === "") {
+              searchWrap.style.display = "block";
+          } else {
+              searchWrap.style.display = "none";
+          }
+      });
 });
 
 function checkSize() {
